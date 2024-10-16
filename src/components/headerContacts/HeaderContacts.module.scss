@@ -1,0 +1,11 @@
+.header_contacts {
+    border-bottom: 1px solid var(--decoration-line-color);
+    display: flex;
+    font-size: 12px;
+    line-height: 18px;
+
+    &__item {
+        color: var(--main-text-color);
+        padding: 12px 8px;
+    }
+}

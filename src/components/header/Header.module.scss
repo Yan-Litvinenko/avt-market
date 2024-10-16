@@ -1,0 +1,29 @@
+.header {
+    border-bottom: 1px solid var(--decorative-line-color);
+    font-family: Roboto Flex Latin;
+    height: 100px;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 200;
+
+    &__inner {
+        align-items: center;
+        background-color: #fff;
+        display: flex;
+        justify-content: space-between;
+        overflow: hidden;
+        transition: background-color 0.3s;
+    }
+}
+
+.logo {
+    height: 42px;
+    max-width: 197px;
+
+    &__img {
+        height: 100%;
+        width: 100%;
+    }
+}
