@@ -1,5 +1,5 @@
 import React from 'react';
-import type { LogoProps } from '../../interfaces/components.interface';
+import type { LogoProps } from '../../interfaces/component.interface';
 
 export const Logo = ({ className }: LogoProps): React.JSX.Element => {
     return (

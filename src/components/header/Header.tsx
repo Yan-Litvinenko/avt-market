@@ -1,16 +1,20 @@
 import React from 'react';
 import styles from './Header.module.scss';
-import { Logo } from '../logo/Logo';
 import { HeaderContacts } from '../headerContacts/HeaderContacts';
-import { useHeaderFixed } from '../../hooks/useHeaderFixed';
 import { HeaderNavigation } from '../headerNavigation/HeaderNavigation';
 import { Link } from 'react-router-dom';
+import { Logo } from '../logo/Logo';
+import { menuNavigationSelector } from '../../redux/selectors';
+import { useHeaderFixed } from '../../hook/useHeaderFixed';
+import { useSelector } from 'react-redux';
 
 export const Header = (): React.JSX.Element => {
-    const scrollPosition = useHeaderFixed();
+    const burgerMenuState: boolean = useSelector(menuNavigationSelector).burgerMenuState;
+    const scrollPosition: number = useHeaderFixed();
+    const headerIsActive: boolean = scrollPosition !== 0 || burgerMenuState;
 
     return (
-        <header className={`${styles.header} ${scrollPosition !== 0 ? styles.header_active : ''}`}>
+        <header className={`${styles.header} ${headerIsActive ? styles.header_active : ''}`}>
             <div className={`${styles.header__inner} container`}>
                 <div className={styles.logo}>
                     <Link className={styles.logo__link} to={'/'}>

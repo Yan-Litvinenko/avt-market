@@ -1,0 +1,30 @@
+.burger_menu {
+    background: #fff;
+    display: none;
+    inset: 0;
+    height: 100vh;
+    overflow-y: scroll;
+    position: absolute;
+    width: 100%;
+    z-index: 10;
+
+    &__list {
+        margin-top: 100px;
+        border-bottom: 3px solid rgba(111, 131, 110, 0.4);
+    }
+
+    &__item {
+        padding: 16px;
+        line-height: 32px;
+    }
+
+    &__item + &__item {
+        border-top: 1px solid var(--decorative-line-color);
+    }
+}
+
+@media (max-width: 1200px) {
+    .burger_menu {
+        display: block;
+    }
+}

@@ -1,27 +1,25 @@
 import React from 'react';
-import styles from './HeaderNavigation.module.scss';
-import { HeaderNavigationMobile } from '../headerNavigationMobule/HeaderNavigationMobile';
+import styles from './BurgerMenu.module.scss';
 import { Link } from 'react-router-dom';
 import { menuNavigationSelector } from '../../redux/selectors';
 import { useSelector } from 'react-redux';
 
-export const HeaderNavigation = (): React.JSX.Element => {
+export const BurgerMenu = (): React.JSX.Element => {
     const menu: string[] = useSelector(menuNavigationSelector).menuNavigationElements;
 
     return (
-        <nav className={styles.header_nav}>
-            <ul className={styles.header_nav__list}>
+        <nav className={styles.burger_menu}>
+            <ul className={styles.burger_menu__list}>
                 {menu.map((link) => {
                     return (
-                        <li className={styles.header_nav__item} key={link}>
-                            <Link className={styles.header_nav__link} to={'/'}>
+                        <li className={styles.burger_menu__item} key={link}>
+                            <Link className={styles.burger_menu__link} to={'/'}>
                                 {link}
                             </Link>
                         </li>
                     );
                 })}
             </ul>
-            <HeaderNavigationMobile />
         </nav>
     );
 };
