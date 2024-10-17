@@ -5,13 +5,14 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserWebpackPlugin = require('terser-webpack-plugin');
 const CssMinimizerWebpackPlugin = require('css-minimizer-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
+const webpack = require('webpack');
 
 const isDev = process.env.NODE_ENV === 'development';
 const isProd = !isDev;
 
 module.exports = {
     entry: path.resolve(__dirname, './src/index.tsx'),
-    mode: 'development',
+    mode: isDev ? 'development' : 'production',
     output: {
         filename: '[name].[contenthash].js',
         path: path.resolve(__dirname, './dist'),
@@ -25,50 +26,40 @@ module.exports = {
         rules: [
             {
                 test: /\.css$/,
-                oneOf: [
+                use: [
+                    MiniCssExtractPlugin.loader,
                     {
-                        test: /[\\/]css[\\/]/,
-                        use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader'],
-                    },
-                    {
-                        use: [
-                            MiniCssExtractPlugin.loader,
-                            {
-                                loader: 'css-loader',
-                                options: {
-                                    modules: {
-                                        localIdentName: '[name]__[local]___[hash:base64:5]',
-                                    },
-                                },
+                        loader: 'css-loader',
+                        options: {
+                            modules: {
+                                auto: /\.module\.css$/,
+                                localIdentName: '[name]__[local]___[hash:base64:5]',
                             },
-                            'postcss-loader',
-                        ],
+                        },
                     },
+                    'postcss-loader',
                 ],
             },
             {
                 test: /\.s[ac]ss$/,
-                oneOf: [
+                use: [
+                    MiniCssExtractPlugin.loader,
                     {
-                        test: /[\\/]css[\\/]/,
-                        use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'sass-loader'],
-                    },
-                    {
-                        use: [
-                            MiniCssExtractPlugin.loader,
-                            {
-                                loader: 'css-loader',
-                                options: {
-                                    modules: {
-                                        localIdentName: '[name]__[local]--[hash:base64:5]',
-                                    },
-                                },
+                        loader: 'css-loader',
+                        options: {
+                            modules: {
+                                auto: /\.module\.s[ac]ss$/,
+                                localIdentName: '[name]__[local]--[hash:base64:5]',
                             },
-                            'postcss-loader',
-                            'sass-loader',
-                        ],
+                        },
                     },
+                    'postcss-loader',
+                    'sass-loader',
                 ],
+            },
+            {
+                test: /\.(png|jpg|jpeg|svg|avif|webp|ico)$/i,
+                type: 'asset/resource',
             },
             {
                 test: /\.(mp3|wav|ogg)$/i,
@@ -76,10 +67,6 @@ module.exports = {
             },
             {
                 test: /\.(ttf|woff|woff2)$/i,
-                type: 'asset/resource',
-            },
-            {
-                test: /\.(png|jpg|jpeg|svg|avif|webp|ico$)/,
                 type: 'asset/resource',
             },
             {
@@ -113,10 +100,13 @@ function addPlugins() {
         }),
         new CleanWebpackPlugin(),
         new MiniCssExtractPlugin({ filename: '[name].[contenthash].css' }),
+        new webpack.DefinePlugin({
+            'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
+        }),
     ];
 
     if (isDev) {
-        plugins.push(new ESLintPlugin({ extensions: ['.ts'] }));
+        plugins.push(new ESLintPlugin({ extensions: ['.ts', '.tsx'] }));
     }
 
     return plugins;
