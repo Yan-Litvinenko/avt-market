@@ -5,3 +5,7 @@ export type SliderElementProps = {
     linkPath: string;
     title: string;
 };
+
+export type LogoProps = {
+    className: string;
+};

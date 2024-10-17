@@ -1,6 +1,10 @@
 .header_nav {
+    display: flex;
+    justify-content: space-between;
+    gap: 0px 10px;
+    align-items: center;
+
     &__list {
-        color: var(--main-text-color);
         display: flex;
     }
 
@@ -47,5 +51,11 @@
 
     .header_nav:not(:hover) .header_nav__item:not(.active):before {
         transform: translateY(100%);
+    }
+}
+
+@media (max-width: 1200px) {
+    .header_nav__list {
+        display: none;
     }
 }

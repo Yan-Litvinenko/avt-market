@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './HeaderNavigation.module.scss';
 import { Link } from 'react-router-dom';
+import { HeaderNavigationMobile } from '../headerNavigationMobule/HeaderNavigationMobile';
 
 export const HeaderNavigation = (): React.JSX.Element => {
     return (
@@ -18,6 +19,7 @@ export const HeaderNavigation = (): React.JSX.Element => {
                     },
                 )}
             </ul>
+            <HeaderNavigationMobile />
         </nav>
     );
 };

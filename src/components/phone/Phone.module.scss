@@ -1,0 +1,44 @@
+.phone path {
+    fill: var(--main-color);
+    transition: fill ease var(--transition-time);
+}
+
+.phone {
+    width: 24px;
+    height: 24px;
+}
+
+.phone_link {
+    padding: 10px;
+}
+
+@media (hover: hover) {
+    .phone:hover path {
+        fill: var(--hover-main-color);
+    }
+}
+
+@media (max-width: 1200px) {
+    .phone {
+        position: relative;
+        top: 5px;
+        left: -10px;
+    }
+}
+
+@media (max-width: 768px) {
+    .phone {
+        position: relative;
+        left: 0px;
+    }
+
+    .phone_link span {
+        display: none;
+    }
+}
+
+@media (max-width: 400px) {
+    .phone_link {
+        padding: 8px;
+    }
+}

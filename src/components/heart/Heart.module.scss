@@ -1,0 +1,32 @@
+.heart {
+    height: 24px;
+    width: 24px;
+
+    & path {
+        stroke: var(--main-color);
+        transition: stroke ease var(--transition-time);
+    }
+}
+
+.heart_link {
+    padding: 10px;
+}
+
+@media (hover: hover) {
+    .heart:hover path {
+        stroke: var(--hover-main-color);
+    }
+}
+
+@media (max-width: 1200px) {
+    .heart {
+        position: relative;
+        top: 5px;
+    }
+}
+
+@media (max-width: 400px) {
+    .heart_link {
+        padding: 8px;
+    }
+}

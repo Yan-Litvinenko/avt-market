@@ -5,7 +5,12 @@
     line-height: 18px;
 
     &__item {
-        color: var(--main-text-color);
         padding: 12px 8px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .header_contacts {
+        display: none;
     }
 }

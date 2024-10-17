@@ -13,10 +13,10 @@ export const Slider = (): React.JSX.Element => {
         <Swiper
             modules={[Autoplay, Pagination, Navigation]}
             slidesPerView={1}
-            // autoplay={{
-            //     delay: 5000,
-            //     disableOnInteraction: false,
-            // }}
+            autoplay={{
+                delay: 5000,
+                disableOnInteraction: false,
+            }}
             pagination={{
                 clickable: true,
                 type: 'progressbar',
