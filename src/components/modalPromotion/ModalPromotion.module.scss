@@ -1,0 +1,111 @@
+.modal_promotion {
+    align-items: center;
+    background-color: #171719;
+    display: flex;
+    inset: 0;
+    justify-content: center;
+    opacity: 0.95;
+    padding: 10px;
+    position: fixed;
+    transition: opacity 0.3s;
+    z-index: 200;
+
+    &__inner {
+        background-color: #fff;
+        border-radius: 20px;
+        max-width: 450px;
+        padding: 30px;
+        position: relative;
+        width: 100%;
+    }
+
+    &__cross {
+        border: 5px solid transparent;
+        cursor: pointer;
+        height: 35px;
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        transition: all ease var(--transition-time);
+        width: 35px;
+    }
+
+    &__cross::before,
+    &__cross::after {
+        content: '';
+        position: absolute;
+        background-color: var(--main-text-color);
+        transition: background-color 0.3s ease;
+    }
+
+    &__cross::before {
+        width: 100%;
+        height: 5px;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%) rotate(45deg);
+    }
+
+    &__cross::after {
+        width: 100%;
+        height: 5px;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%) rotate(-45deg);
+    }
+
+    &__title {
+        font-size: 28px;
+        margin-bottom: 24px;
+        text-align: center;
+    }
+
+    &__description {
+        color: var(--light-text-color);
+        text-align: center;
+        margin-bottom: 24px;
+    }
+
+    &__btn {
+        background-color: var(--main-color);
+        border-radius: 48px;
+        color: #fff;
+        display: block;
+        margin: 0 auto;
+        padding: 12px;
+        text-align: center;
+        transition: all ease var(--transition-time);
+    }
+}
+
+@media (hover: hover) {
+    .modal_promotion__btn:hover {
+        background-color: var(--hover-main-color);
+        text-shadow: 0.4px 0.4px 0.4px #fff;
+    }
+
+    .modal_promotion__cross:hover {
+        filter: drop-shadow(0.5px 0.5px 0.5px var(--main-text-color));
+    }
+}
+
+@media (max-width: 500px) {
+    .modal_promotion {
+        &__inner {
+            padding: 10px;
+        }
+
+        &__cross {
+            right: 10px;
+            top: 2px;
+        }
+
+        &__cross::before {
+            height: 3px;
+        }
+
+        &__cross::after {
+            height: 3px;
+        }
+    }
+}

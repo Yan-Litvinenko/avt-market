@@ -1,30 +1,35 @@
-import React from 'react';
-import type { UseScroll } from '../interfaces/hook.interface';
+class ScrollManager {
+    private scrollPosition: number;
 
-export const useScroll = (): UseScroll => {
-    const scrollPosition = React.useRef(0);
+    constructor() {
+        this.scrollPosition = 0;
+    }
 
-    const scrollOff = () => {
-        scrollPosition.current = window.scrollY;
+    scrollOff(): void {
+        this.scrollPosition = window.scrollY;
+
         document.body.style.cssText = `
         overflow: hidden;
         padding-right: ${window.innerWidth - document.body.offsetWidth}px;
         position: fixed;
-        top: -${scrollPosition.current}px;
+        top: -${this.scrollPosition}px;
         left: 0;
         height: 100vh;
         width: 100vw;
       `;
+
         document.documentElement.style.scrollBehavior = 'unset';
-    };
+    }
 
-    const scrollOn = () => {
+    scrollOn(): void {
         document.body.style.cssText = '';
-        window.scrollTo({
-            top: scrollPosition.current,
-        });
-        document.documentElement.style.scrollBehavior = '';
-    };
 
-    return { scrollOff, scrollOn };
-};
+        window.scrollTo({
+            top: this.scrollPosition,
+        });
+
+        document.documentElement.style.scrollBehavior = '';
+    }
+}
+
+export const scrollManager = new ScrollManager();
