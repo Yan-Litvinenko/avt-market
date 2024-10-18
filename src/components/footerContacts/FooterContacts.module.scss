@@ -30,3 +30,33 @@
         color: var(--main-text-color);
     }
 }
+
+@media (max-width: 1150px) {
+    .footer_contacts {
+        &__list {
+            flex-wrap: wrap;
+            row-gap: 16px;
+        }
+
+        &__item {
+            width: 50%;
+        }
+
+        &__item:nth-child(even) {
+            text-align: right;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .footer_contacts {
+        font-size: 14px;
+        line-height: 20px;
+    }
+}
+
+@media (max-width: 380px) {
+    .footer_contacts {
+        font-size: 13px;
+    }
+}
