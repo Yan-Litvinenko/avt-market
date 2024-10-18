@@ -14,7 +14,7 @@ export const HeaderNavigation = (): React.JSX.Element => {
                 {menu.map((link) => {
                     return (
                         <li className={styles.header_nav__item} key={link}>
-                            <Link className={styles.header_nav__link} to={'/'}>
+                            <Link className={styles.header_nav__link} to={link}>
                                 {link}
                             </Link>
                         </li>

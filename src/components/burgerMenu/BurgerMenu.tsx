@@ -18,7 +18,7 @@ export const BurgerMenu = (): React.JSX.Element => {
                 {menu.map((link) => {
                     return (
                         <li className={styles.burger_menu__item} key={link} onClick={handleFollowLink}>
-                            <Link className={styles.burger_menu__link} to={'/'}>
+                            <Link className={styles.burger_menu__link} to={link}>
                                 {link}
                             </Link>
                         </li>
