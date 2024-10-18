@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import type { MenuNavigationSlice } from '../../interfaces/slice.interface';
 
 const initialState: MenuNavigationSlice = {
-    burgerMenuState: true,
+    burgerMenuState: false,
     menuNavigationElements: [
         'В наличии',
         'Автокредит',

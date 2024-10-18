@@ -16,6 +16,8 @@
     justify-content: space-between;
     outline: none;
     padding: 19px 16px;
+    position: relative;
+    top: 1px;
     width: 56px;
 
     &__element {
@@ -24,6 +26,24 @@
         height: 3px;
         transition: 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6);
         width: 100%;
+    }
+}
+
+.hamburger_active {
+    & span:nth-child(1) {
+        position: relative;
+        transform-origin: bottom;
+        transform: rotate(45deg) translate(3px, 6px);
+        top: 0.5px;
+    }
+
+    & span:nth-child(2) {
+        opacity: 0;
+    }
+
+    & span:nth-child(3) {
+        transform-origin: bottom;
+        transform: translateY(-8px) rotate(-45deg);
     }
 }
 

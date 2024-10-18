@@ -48,10 +48,6 @@
     .header_nav:hover .header_nav__item:hover:before {
         transition-delay: 0ms, 0ms;
     }
-
-    .header_nav:not(:hover) .header_nav__item:not(.active):before {
-        transform: translateY(100%);
-    }
 }
 
 @media (max-width: 1200px) {
