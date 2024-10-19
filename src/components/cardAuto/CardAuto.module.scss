@@ -119,3 +119,9 @@
         background-color: var(--hover-main-color);
     }
 }
+
+@media (max-width: 1200px) {
+    .card_auto__picture {
+        max-width: 100%;
+    }
+}

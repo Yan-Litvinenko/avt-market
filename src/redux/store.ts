@@ -1,5 +1,6 @@
 import menuNavigationSlice from './slice/menuNavigationSlice';
 import modalPromotionSlice from './slice/modalPromotionSlice';
+import mediaQuerySlice from './slice/mediaQuerySlice';
 import favoritesSlice from './slice/favoritesSlice';
 import { configureStore } from '@reduxjs/toolkit';
 import type { ThunkAction, Action } from '@reduxjs/toolkit';
@@ -9,6 +10,7 @@ const store = configureStore({
         menuNavigation: menuNavigationSlice,
         modalPromotion: modalPromotionSlice,
         favorites: favoritesSlice,
+        mediaQuery: mediaQuerySlice,
     },
 });
 

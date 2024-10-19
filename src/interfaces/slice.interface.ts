@@ -13,3 +13,10 @@ export type FavoritesSlice = {
     favoritesCount: number;
     favoritesList: FavoritesLocalStorage[];
 };
+
+export type MediaQuerySlice = {
+    readonly SMALL: number;
+    readonly MEDIUM: number;
+    isSmall: boolean;
+    isMedium: boolean;
+};
