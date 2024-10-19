@@ -1,12 +1,14 @@
 import menuNavigationSlice from './slice/menuNavigationSlice';
 import modalPromotionSlice from './slice/modalPromotionSlice';
+import favoritesSlice from './slice/favoritesSlice';
 import { configureStore } from '@reduxjs/toolkit';
 import type { ThunkAction, Action } from '@reduxjs/toolkit';
 
 const store = configureStore({
     reducer: {
         menuNavigation: menuNavigationSlice,
-        ModalPromotion: modalPromotionSlice,
+        modalPromotion: modalPromotionSlice,
+        favorites: favoritesSlice,
     },
 });
 

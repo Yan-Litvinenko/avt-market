@@ -3,13 +3,10 @@
     width: 24px;
 
     & path {
+        fill: none;
         stroke: var(--main-color);
         transition: stroke ease var(--transition-time);
     }
-}
-
-.heart_link {
-    padding: 10px;
 }
 
 @media (hover: hover) {
@@ -22,11 +19,5 @@
     .heart {
         position: relative;
         top: 5px;
-    }
-}
-
-@media (max-width: 400px) {
-    .heart_link {
-        padding: 8px;
     }
 }

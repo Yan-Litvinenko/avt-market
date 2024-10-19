@@ -1,3 +1,5 @@
+import type { AutoCard } from './interface';
+
 export type SliderElementProps = {
     descriptionStroke: string[];
     imgPath: string;
@@ -9,3 +11,5 @@ export type SliderElementProps = {
 export type LogoProps = {
     className: string;
 };
+
+export type CardAutoProps = AutoCard & { addedFavorites: boolean };

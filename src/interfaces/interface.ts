@@ -27,3 +27,7 @@ export type AutoCard = {
     volume: string;
     year: number;
 };
+
+export type FavoritesLocalStorage = {
+    id: number;
+};

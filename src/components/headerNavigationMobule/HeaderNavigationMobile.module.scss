@@ -47,6 +47,10 @@
     }
 }
 
+.heart_link {
+    padding: 10px;
+}
+
 @media (hover: hover) {
     .hamburger:hover span {
         background-color: var(--hover-main-color);
@@ -76,5 +80,9 @@
 
     .hamburger {
         padding: 15px 9px;
+    }
+
+    .heart_link {
+        padding: 8px;
     }
 }

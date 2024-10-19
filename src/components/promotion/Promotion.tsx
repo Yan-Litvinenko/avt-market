@@ -70,6 +70,7 @@ export const Promotion = (): React.JSX.Element => {
                             <li
                                 className={styles.promotion__item}
                                 onClick={() => promotionElementHandler({ title, descrption, link })}
+                                key={title}
                             >
                                 <h3 className={styles.promotion__title}>{title}</h3>
                                 <img className={styles.promotion__img} src={img} alt={title} />

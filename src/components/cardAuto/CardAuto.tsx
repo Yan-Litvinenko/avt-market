@@ -2,18 +2,19 @@ import React from 'react';
 import styles from './CardAuto.module.scss';
 import { Link } from 'react-router-dom';
 import { formatPrice } from '../../helpers/formatPrice';
-import type { AutoCard } from '../../interfaces/interface';
+import { ButtonFavorite } from '../buttonFavorite/ButtonFavorite';
+import type { CardAutoProps } from '../../interfaces/component.interface';
 
-export const CardAuto = (props: AutoCard): React.JSX.Element => {
+export const CardAuto = (props: CardAutoProps): React.JSX.Element => {
     const { inStock, name, year, volume, mileage, power, manualTransmission, fuel, owners, drive, body } = props;
-    const { price, priceNoFee } = props;
+    const { price, priceNoFee, addedFavorites, id } = props;
 
     return (
         <article className={styles.card_auto}>
             <section className={styles.card_auto__body}>
                 <header className={styles.card_auto__header}>
                     <div className={styles.card_auto__in_stock}>{inStock ? 'В наличии' : 'Нет в наличии'}</div>
-                    <div></div>
+                    <ButtonFavorite addedFavorites={addedFavorites} id={id} />
                 </header>
                 <picture className={styles.card_auto__picture}></picture>
                 <h3 className={styles.card_auto__name}>
