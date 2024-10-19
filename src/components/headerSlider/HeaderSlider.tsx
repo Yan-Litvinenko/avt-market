@@ -4,11 +4,11 @@ import SlideImage1_x2 from '../../assets/images/slider-1@2x.webp';
 import SlideImage2 from '../../assets/images/slider-2.webp';
 import SlideImage2_x2 from '../../assets/images/slider-2@2x.webp';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { SliderElement } from '../sliderElement/SliderElement';
+import { HeaderSliderElement } from '../HeaderSliderElement/HeaderSliderElement';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 import 'swiper/swiper-bundle.css';
 
-export const Slider = (): React.JSX.Element => {
+export const HeaderSlider = (): React.JSX.Element => {
     return (
         <section>
             <Swiper
@@ -30,7 +30,7 @@ export const Slider = (): React.JSX.Element => {
                 loop={true}
             >
                 <SwiperSlide>
-                    <SliderElement
+                    <HeaderSliderElement
                         title="Автокредит от 4.9&nbsp;%"
                         descriptionStroke={['со скидкой до 300.000р.', 'В подарок второй комплект резины и КАСКО']}
                         linkPath="/"
@@ -40,7 +40,7 @@ export const Slider = (): React.JSX.Element => {
                 </SwiperSlide>
 
                 <SwiperSlide>
-                    <SliderElement
+                    <HeaderSliderElement
                         title="TRADE-IN"
                         descriptionStroke={['с выгодой до 150.000р.']}
                         linkPath="/"

@@ -1,0 +1,115 @@
+.card_auto {
+    border-radius: 10px;
+    box-shadow: 0 4px 24px 0 rgba(0, 16, 61, 0.12);
+    position: relative;
+    transition: box-shadow ease var(--transition-time);
+
+    &__title {
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 24px;
+    }
+
+    &__body {
+        border-bottom: 1px solid var(--decorative-line-color);
+        padding-bottom: 16px;
+    }
+
+    &__header {
+        position: absolute;
+        padding: 16px;
+    }
+
+    &__in_stock {
+        background-color: rgb(98 180 138);
+        border-radius: 16px;
+        color: #1e1e1e;
+        color: #fff;
+        font-size: 12px;
+        line-height: 18px;
+        max-width: 100px;
+        padding: 4px 8px;
+        width: 100%;
+    }
+
+    &__picture {
+        background-color: lightgray;
+        border-radius: 10px;
+        display: block;
+        height: 250px;
+        max-width: 360px;
+        width: 100%;
+    }
+
+    &__name {
+        text-align: left;
+        padding: 16px 16px 0;
+    }
+
+    &__name span {
+        color: var(--light-text-color);
+    }
+
+    &__tags {
+        color: var(--light-text-color);
+        font-size: 12px;
+        line-height: 18px;
+        padding: 16px 16px 0;
+        text-align: left;
+    }
+
+    &__footer {
+        display: flex;
+        justify-content: space-between;
+        padding: 16px;
+    }
+
+    &__price_box {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    &__price {
+        font-size: 20px;
+        line-height: 24px;
+        text-align: left;
+    }
+
+    &__price_no_fee {
+        font-size: 10px;
+        line-height: 16px;
+        color: var(--light-text-color);
+    }
+
+    &__buy {
+        background-color: var(--main-color);
+        border-radius: 48px;
+        border: none;
+        color: #fff;
+        cursor: pointer;
+        font-size: 16px;
+        line-height: 24px;
+        outline: none;
+        padding: 12px;
+        position: relative;
+        transition: all ease var(--transition-time);
+        z-index: 2;
+    }
+
+    &__link {
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+    }
+}
+
+@media (hover: hover) {
+    .card_auto:hover {
+        box-shadow: 0 4px 24px 0 rgba(18, 61, 0, 0.22);
+    }
+
+    .card_auto__buy:hover {
+        background-color: var(--hover-main-color);
+    }
+}

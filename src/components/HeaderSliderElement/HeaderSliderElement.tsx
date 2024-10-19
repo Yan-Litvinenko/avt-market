@@ -1,9 +1,9 @@
 import React from 'react';
-import styles from './SliderElement.module.scss';
+import styles from './HeaderSliderElement.module.scss';
 import { Link } from 'react-router-dom';
 import type { SliderElementProps } from '../../interfaces/component.interface';
 
-export const SliderElement = (props: SliderElementProps): React.JSX.Element => {
+export const HeaderSliderElement = (props: SliderElementProps): React.JSX.Element => {
     const { imgPath, imgPath2x, title, descriptionStroke, linkPath } = props;
 
     return (

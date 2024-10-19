@@ -1,6 +1,6 @@
-import type { InStockCar } from './interface';
+import type { AutoCard, InStockCar } from './interface';
 
 export type DataHomeLoader = {
     inStock: InStockCar[];
-    cardList: unknown;
+    cardList: AutoCard[];
 };

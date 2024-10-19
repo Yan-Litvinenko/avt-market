@@ -6,7 +6,7 @@ import prizeImage from '../../assets/images/prize_promotion.svg';
 import roadImage from '../../assets/images/road_promotion.svg';
 import tradeImage from '../../assets/images/trade_in_promotion.svg';
 import styles from './Promotion.module.scss';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { scrollManager } from '../../helpers/Scroll';
 import { useDispatch } from 'react-redux';
 import { openPromotionModal } from '../../redux/slice/modalPromotionSlice';
@@ -73,7 +73,7 @@ export const Promotion = (): React.JSX.Element => {
                             >
                                 <h3 className={styles.promotion__title}>{title}</h3>
                                 <img className={styles.promotion__img} src={img} alt={title} />
-                                {/* {link ? <Link className={styles.promotion__link} to={link} /> : null} */}
+                                {link ? <Link className={styles.promotion__link} to={link} /> : null}
                             </li>
                         );
                     })}

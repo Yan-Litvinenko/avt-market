@@ -21,7 +21,7 @@ export const InStock = (): React.JSX.Element => {
                             <Await resolve={inStock}>
                                 {(resolveInStock) => {
                                     return (resolveInStock as InStockCar[])
-                                        .slice(0, visibleMore ? resolveInStock.length : 24)
+                                        .slice(0, visibleMore ? resolveInStock.length : 2)
                                         .map(({ name, count }) => {
                                             return (
                                                 <li className={styles.in_stock__item} key={name}>
