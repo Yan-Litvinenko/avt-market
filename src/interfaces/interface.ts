@@ -4,6 +4,11 @@ export type InStockCar = {
     count: number;
 };
 
+export type MenuElement = {
+    name: string;
+    link: string;
+};
+
 export type ModalPromotionData = {
     descrption: string;
     title: string;

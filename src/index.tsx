@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { About } from './pages/home/about/About';
 import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router-dom';
 import { Home } from './pages/home/Home';
 import { homeLoader } from './loader/homeLoader';
@@ -13,6 +14,7 @@ const router = createBrowserRouter(
     createRoutesFromElements(
         <Route path="/" element={<Layout />}>
             <Route index element={<Home />} loader={homeLoader} />
+            <Route path="about" element={<About />} />
         </Route>,
     ),
 );

@@ -18,9 +18,11 @@ export const HeaderNavigationMobile = (): React.JSX.Element => {
     return (
         <article className={styles.header_navigation_mobile}>
             <div className={styles.header_navigation_mobile__heart}>
-                <Link className={styles.heart_link} to={'/'}>
+                <Link className={styles.header_navigation_mobile__heart_link} to={'/'}>
                     <Heart />
-                    {favoritesCount}
+                    <div className={styles.header_navigation_mobile__count}>
+                        <span>{favoritesCount}</span>
+                    </div>
                 </Link>
             </div>
             <div className={styles.header_navigation_mobile__phone}>

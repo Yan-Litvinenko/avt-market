@@ -4,6 +4,31 @@
     &__phone {
         display: none;
     }
+
+    &__heart_link {
+        position: relative;
+        padding: 10px;
+    }
+
+    &__count {
+        align-items: center;
+        background-color: var(--main-color);
+        border-radius: 50%;
+        color: #fff;
+        display: flex;
+        font-size: 12px;
+        height: 18px;
+        justify-content: center;
+        position: absolute;
+        right: 0px;
+        top: 0px;
+        width: 18px;
+    }
+
+    &__count span {
+        position: relative;
+        left: 1px;
+    }
 }
 
 .hamburger {
@@ -47,10 +72,6 @@
     }
 }
 
-.heart_link {
-    padding: 10px;
-}
-
 @media (hover: hover) {
     .hamburger:hover span {
         background-color: var(--hover-main-color);
@@ -82,7 +103,7 @@
         padding: 15px 9px;
     }
 
-    .heart_link {
+    .header_navigation_mobile__heart_link {
         padding: 8px;
     }
 }

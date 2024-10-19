@@ -1,22 +1,30 @@
 import React from 'react';
 import styles from './HeaderNavigation.module.scss';
 import { HeaderNavigationMobile } from '../headerNavigationMobule/HeaderNavigationMobile';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { menuNavigationSelector } from '../../redux/selectors';
 import { useSelector } from 'react-redux';
+import type { MenuElement } from '../../interfaces/interface';
 
 export const HeaderNavigation = (): React.JSX.Element => {
-    const menu: string[] = useSelector(menuNavigationSelector).menuNavigationElements;
+    const menu: MenuElement[] = useSelector(menuNavigationSelector).menuNavigationElements;
 
     return (
         <nav className={styles.header_nav}>
             <ul className={styles.header_nav__list}>
-                {menu.map((link) => {
+                {menu.map(({ name, link }) => {
                     return (
-                        <li className={styles.header_nav__item} key={link}>
-                            <Link className={styles.header_nav__link} to={link}>
-                                {link}
-                            </Link>
+                        <li className={styles.header_nav__item} key={name}>
+                            <NavLink
+                                className={({ isActive }) =>
+                                    isActive
+                                        ? `${styles.header_nav__link} ${styles.header_nav__link_active}`
+                                        : styles.header_nav__link
+                                }
+                                to={link}
+                            >
+                                {name}
+                            </NavLink>
                         </li>
                     );
                 })}

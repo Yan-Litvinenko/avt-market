@@ -24,14 +24,17 @@
     }
 
     &__in_stock {
+        align-items: center;
         background-color: rgb(98 180 138);
         border-radius: 16px;
         color: #1e1e1e;
         color: #fff;
+        display: flex;
         font-size: 12px;
+        justify-content: center;
         line-height: 18px;
         max-width: 100px;
-        padding: 4px 8px;
+        padding: 4px;
         width: 100%;
     }
 
@@ -80,9 +83,9 @@
     }
 
     &__price_no_fee {
+        color: var(--light-text-color);
         font-size: 10px;
         line-height: 16px;
-        color: var(--light-text-color);
     }
 
     &__buy {
@@ -101,8 +104,8 @@
     }
 
     &__link {
-        position: absolute;
         inset: 0;
+        position: absolute;
         z-index: 1;
     }
 }

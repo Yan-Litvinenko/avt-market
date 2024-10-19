@@ -1,8 +1,8 @@
-import type { ModalPromotionData, FavoritesLocalStorage } from './interface';
+import type { ModalPromotionData, FavoritesLocalStorage, MenuElement } from './interface';
 
 export type MenuNavigationSlice = {
     burgerMenuState: boolean;
-    menuNavigationElements: string[];
+    menuNavigationElements: MenuElement[];
 };
 
 export type ModalPromotionSlice = {

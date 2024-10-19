@@ -4,14 +4,38 @@ import type { MenuNavigationSlice } from '../../interfaces/slice.interface';
 const initialState: MenuNavigationSlice = {
     burgerMenuState: false,
     menuNavigationElements: [
-        'В наличии',
-        'Автокредит',
-        'Рассрочка',
-        'Выкуп',
-        'Trade-In',
-        'Банки',
-        'Контакты',
-        'О компании',
+        {
+            name: 'В наличии',
+            link: '/cars',
+        },
+        {
+            name: 'Автокредит',
+            link: '/credit',
+        },
+        {
+            name: 'Рассрочка',
+            link: '/installment',
+        },
+        {
+            name: 'Выкуп',
+            link: '/buyout',
+        },
+        {
+            name: 'Trade-In',
+            link: '/exchange',
+        },
+        {
+            name: 'Банки',
+            link: '/banks',
+        },
+        {
+            name: 'Контакты',
+            link: '/contacts',
+        },
+        {
+            name: 'О компании',
+            link: '/about',
+        },
     ],
 };
 
