@@ -26,6 +26,11 @@
         line-height: 18px;
         white-space: nowrap;
     }
+
+    &__link {
+        color: rgb(102, 120, 177);
+        font-weight: 600;
+    }
 }
 
 .checkbox_label__checkbox:checked + .checkbox_label__checkbox_custom {

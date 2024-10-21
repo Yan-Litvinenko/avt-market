@@ -4,7 +4,11 @@ import { Benefits } from '../../components/benefits/Benefits';
 import { BanksList } from '../../components/banksList/BanksList';
 import { SelectAutoButton } from '../../components/selectAutoButton/SelectAutoButton';
 import { Checkbox } from '../../components/checkbox/Checkbox';
+import { FormField } from '../../components/formField/FormField';
+import { CheckboxAgree } from '../../components/checkboxAgree/CheckboxAgree';
+import { FormSendButton } from '../../components/formSendButton/FormSendButton';
 import { FormFieldPhone } from '../../components/formFieldPhone/FormFieldPhone';
+import { FieldDownPayment } from '../../components/fieldSlider/FieldSlider';
 import type { BenefitsProps } from '../../interfaces/interface';
 
 const benefits: BenefitsProps[] = [
@@ -48,8 +52,30 @@ export const TradeIn = (): React.JSX.Element => {
                     <div className={styles.trade_in__content}>
                         <form className={styles.trade_in__form}>
                             <SelectAutoButton />
-                            <Checkbox id="buy_in_credit" textContent="Купить авто в кредит" />
-                            <FormFieldPhone id="buy_in_credit_phone" />
+                            <Checkbox id="trade_in_credit" textContent="Купить авто в кредит" />
+                            <FieldDownPayment
+                                titleText="Срок кредита, мес.:"
+                                value={0}
+                                unitOfMeasurement="мес."
+                                step={10}
+                                endpoints={['2', '6', '12', '24', '36', '48', '60', '72', '84', '96']}
+                                ticksContentWidth={94.5926}
+                                tickItemWidth={14}
+                            />
+                            <FieldDownPayment
+                                titleText="Первоначальный взнос:"
+                                value={0}
+                                unitOfMeasurement="&#8381;"
+                                step={10}
+                                endpoints={['0%', '10%', '20%', '30%', '40%', '50%', '60%', '70%', '80%']}
+                                ticksContentWidth={93}
+                                tickItemWidth={16}
+                            />
+                            <FormField id="trade_in_your_auto" placeholder="Ваш автомобиль" />
+                            <FormField id="trade_in_your_name" placeholder="ФИО" />
+                            <FormFieldPhone id="trade_in_credit_phone" />
+                            <CheckboxAgree id="trade_in_agree" />
+                            <FormSendButton textContent="Отправить заявку" />
                         </form>
                         <p className={styles.trade_in__description}>
                             Автосалон «YouAuto» предлагает услугу Trade-In, которая пользуется популярностью на
@@ -62,7 +88,7 @@ export const TradeIn = (): React.JSX.Element => {
                     </div>
                 </div>
                 <div className={styles.trade_in__banks}>
-                    <h2>Банки-партнеры</h2>
+                    <h2 className={styles.trade_in__banks_title}>Банки-партнеры</h2>
                     <BanksList />
                 </div>
             </div>

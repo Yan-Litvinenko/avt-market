@@ -1,8 +1,9 @@
 .trade_in {
     display: flex;
     flex-direction: column;
+    margin-bottom: 50px;
     margin-top: 100px;
-    row-gap: 24px;
+    row-gap: 30px;
 
     &__title {
         font-size: 32px;
@@ -16,6 +17,24 @@
     }
 
     &__form {
+        border-radius: 10px;
+        box-shadow: var(--box-shadow);
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
         min-width: 360px;
+        padding: 16px;
+    }
+
+    &__description {
+        border-radius: 10px;
+        box-shadow: var(--box-shadow);
+        padding: 16px;
+        height: max-content;
+    }
+
+    &__banks_title {
+        font-size: 28px;
+        margin-bottom: 24px;
     }
 }

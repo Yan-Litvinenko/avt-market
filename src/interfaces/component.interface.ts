@@ -17,6 +17,21 @@ export type CrossProps = {
     handler: () => void;
 };
 
+export type FieldSliderProps = {
+    titleText: string;
+    value: number;
+    unitOfMeasurement: string;
+    step: number;
+    endpoints: string[];
+    ticksContentWidth: number;
+    tickItemWidth: number;
+};
+
+export type FormFieldProps = {
+    id: string;
+    placeholder: string;
+};
+
 export type CheckboxProps = {
     id: string;
     textContent: string;
