@@ -12,4 +12,9 @@ export type LogoProps = {
     className: string;
 };
 
+export type CrossProps = {
+    className: string;
+    handler: () => void;
+};
+
 export type CardAutoProps = AutoCard & { addedFavorites: boolean };

@@ -16,40 +16,40 @@ import type { ModalPromotionData } from '../../interfaces/interface';
 const promotionData: ModalPromotionData[] = [
     {
         title: 'Автокредит',
-        descrption:
+        description:
             'При покупке автомобиля с пробегом в кредит мы предлагаем нашим покупателям скидку до 300 000 ₽. Мы сотрудничаем только с проверенными и крупнейшими банками России.',
         link: 'credit',
         img: creditImage,
     },
     {
         title: 'Трейд-Ин',
-        descrption:
+        description:
             'По нашей программе Trade-In можно обменять свой старый автомобиль с выгодой до 300 000 ₽. Оценка автомобиля и сопровождение по сделке - абсолютно бесплатны.',
         link: 'exchange',
         img: tradeImage,
     },
     {
         title: 'Рассрочка',
-        descrption:
+        description:
             'Рассрочка в АЦ "YouAuto" - выгодный и удобный способ приобретения автомобиля с пробегом. Срок погашения до 3 лет без первого взноса и переплат. Если же выплата за 3 года не возможна, лучшее решение - автокредит со скидкой до 300 000₽.',
         link: 'installment',
         img: installmentImage,
     },
     {
         title: 'Подарок на выбор',
-        descrption:
+        description:
             'При покупке автомобиля в кредит мы предлагаем покупателям подарок на выбор - КАСКО, комплект второй резины или дополнительный аксессуар.',
         img: prizeImage,
     },
     {
         title: 'Первый автомобиль',
-        descrption:
+        description:
             'Программа "Первый автомобиль" создана с целью помочь водителям-новичкам приобрести свой первый автомобиль. Программа дарит возможность льготного автокредитования. Водители, участвующие в программе, получают 20% скидку на автомобиль, но только при условии взятия автомобиля в кредит. Это позволяет поддерживать спрос на покупку отечественных автомобилей и авто, собираемых на территории Российской Федерации. Подобная программа была разработана еще в 2009 году и до сих пор успешно функционирует.',
         img: firstAutoImage,
     },
     {
         title: 'Оплатим дорогу',
-        descrption: 'Оплатим все денежные расходы на дорогу покупателям из другого региона.',
+        description: 'Оплатим все денежные расходы на дорогу покупателям из другого региона.',
         img: roadImage,
     },
 ];
@@ -65,11 +65,11 @@ export const Promotion = (): React.JSX.Element => {
         <section className={styles.promotion}>
             <div className="container">
                 <ul className={styles.promotion__list}>
-                    {promotionData.map(({ title, descrption, link, img }) => {
+                    {promotionData.map(({ title, description, link, img }) => {
                         return (
                             <li
                                 className={styles.promotion__item}
-                                onClick={() => promotionElementHandler({ title, descrption, link })}
+                                onClick={() => promotionElementHandler({ title, description, link })}
                                 key={title}
                             >
                                 <h3 className={styles.promotion__title}>{title}</h3>

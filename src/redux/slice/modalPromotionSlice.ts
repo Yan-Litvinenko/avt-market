@@ -3,7 +3,7 @@ import type { PayloadAction } from '@reduxjs/toolkit';
 import type { ModalPromotionSlice } from '../../interfaces/slice.interface';
 
 const initialState: ModalPromotionSlice = {
-    descrption: '',
+    description: '',
     link: '',
     modalPromotionState: false,
     title: '',
@@ -16,13 +16,13 @@ const modalPromotionSlice = createSlice({
         openPromotionModal: (state, action: PayloadAction<Omit<ModalPromotionSlice, 'modalPromotionState'>>) => {
             state.modalPromotionState = true;
             state.title = action.payload.title;
-            state.descrption = action.payload.descrption;
+            state.description = action.payload.description;
             state.link = action.payload.link;
         },
         closePromotionModal: (state) => {
             state.modalPromotionState = false;
             state.title = '';
-            state.descrption = '';
+            state.description = '';
             state.link = '';
         },
     },

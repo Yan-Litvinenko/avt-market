@@ -9,12 +9,15 @@ export type MenuElement = {
     link: string;
 };
 
-export type ModalPromotionData = {
-    descrption: string;
+export type BenefitsProps = {
+    description: string;
     title: string;
+};
+
+export type ModalPromotionData = {
     link?: string;
     img: string;
-};
+} & BenefitsProps;
 
 export type AutoCard = {
     body: string;

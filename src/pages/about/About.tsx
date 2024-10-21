@@ -4,7 +4,7 @@ import styles from './About.module.scss';
 export const About = (): React.JSX.Element => {
     return (
         <div className="container">
-            <div className={styles.about__inner}>
+            <div className={styles.about}>
                 <h1 className={styles.about__title}>Об автоцентре</h1>
                 <div className={styles.about__text}>
                     <p className={styles.about__description}>

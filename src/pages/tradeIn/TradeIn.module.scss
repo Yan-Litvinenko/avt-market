@@ -1,0 +1,12 @@
+.trade_in {
+    display: flex;
+    flex-direction: column;
+    margin-top: 100px;
+    row-gap: 24px;
+
+    &__title {
+        font-size: 32px;
+        line-height: 48px;
+        margin-top: 50px;
+    }
+}

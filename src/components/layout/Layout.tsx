@@ -3,7 +3,7 @@ import styles from './Layout.module.scss';
 import { BurgerMenu } from '../burgerMenu/BurgerMenu';
 import { Footer } from '../footer/Footer';
 import { Header } from '../header/Header';
-import { ModalPromotion } from '../modalPromotion/ModalPromotion';
+import { ModalBenefit } from '../modalBenefit/ModalBenefit';
 import { Outlet } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { modalPromotionSelector } from '../../redux/selectors';
@@ -19,7 +19,7 @@ export const Layout = (): React.JSX.Element => {
             </main>
             <Footer />
             <BurgerMenu />
-            {modalPromotionState ? <ModalPromotion /> : null}
+            {modalPromotionState ? <ModalBenefit /> : null}
         </div>
     );
 };
