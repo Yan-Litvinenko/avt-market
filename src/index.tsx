@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { About } from './pages/home/about/About';
+import { Banks } from './pages/banks/Banks';
 import { Contacts } from './pages/contacts/Contacts';
 import { InitialProvider } from './hoc/InitialProvider';
 import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router-dom';
@@ -16,6 +17,7 @@ const router = createBrowserRouter(
     createRoutesFromElements(
         <Route path="/" element={<Layout />}>
             <Route index element={<Home />} loader={homeLoader} />
+            <Route path="banks" element={<Banks />} />
             <Route path="contacts" element={<Contacts />} />
             <Route path="about" element={<About />} />
         </Route>,
