@@ -17,4 +17,13 @@ export type CrossProps = {
     handler: () => void;
 };
 
+export type CheckboxProps = {
+    id: string;
+    textContent: string;
+};
+
+export type FormFieldPhoneProps = {
+    id: string;
+};
+
 export type CardAutoProps = AutoCard & { addedFavorites: boolean };

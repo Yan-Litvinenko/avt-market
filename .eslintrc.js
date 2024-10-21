@@ -27,7 +27,6 @@ module.exports = {
         'no-debugger': 'off',
         'no-console': 'off',
         'class-methods-use-this': 'off',
-        'newline-per-chained-call': 'error',
         'comma-spacing': ['error', { before: false, after: true }],
         'object-curly-spacing': ['error', 'always'],
         'comma-dangle': ['error', 'always-multiline'],

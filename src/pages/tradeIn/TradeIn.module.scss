@@ -9,4 +9,13 @@
         line-height: 48px;
         margin-top: 50px;
     }
+
+    &__content {
+        display: flex;
+        gap: 24px;
+    }
+
+    &__form {
+        min-width: 360px;
+    }
 }

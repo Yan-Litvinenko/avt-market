@@ -22,6 +22,7 @@ export const Benefits = ({ benefits }: { benefits: BenefitsProps[] }) => {
                         onClick={() =>
                             benefitsElementHandler({ title: benefit.title, description: benefit.description })
                         }
+                        key={benefit.title}
                     >
                         {benefit.title}
                     </li>
