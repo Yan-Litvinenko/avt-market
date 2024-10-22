@@ -8,7 +8,7 @@ import { FormField } from '../../components/formField/FormField';
 import { CheckboxAgree } from '../../components/checkboxAgree/CheckboxAgree';
 import { FormSendButton } from '../../components/formSendButton/FormSendButton';
 import { FormFieldPhone } from '../../components/formFieldPhone/FormFieldPhone';
-import { FieldDownPayment } from '../../components/fieldSlider/FieldSlider';
+import { FieldSlider } from '../../components/fieldSlider/FieldSlider';
 import type { BenefitsProps } from '../../interfaces/interface';
 
 const benefits: BenefitsProps[] = [
@@ -53,7 +53,7 @@ export const TradeIn = (): React.JSX.Element => {
                         <form className={styles.trade_in__form}>
                             <SelectAutoButton />
                             <Checkbox id="trade_in_credit" textContent="Купить авто в кредит" />
-                            <FieldDownPayment
+                            <FieldSlider
                                 titleText="Срок кредита, мес.:"
                                 value={0}
                                 unitOfMeasurement="мес."
@@ -62,7 +62,7 @@ export const TradeIn = (): React.JSX.Element => {
                                 ticksContentWidth={'calc(100% - 23px)'}
                                 ticksLeft="17px"
                             />
-                            <FieldDownPayment
+                            <FieldSlider
                                 titleText="Первоначальный взнос:"
                                 value={0}
                                 unitOfMeasurement="&#8381;"
@@ -71,6 +71,7 @@ export const TradeIn = (): React.JSX.Element => {
                                 ticksContentWidth={'calc(100% - 10px)'}
                                 ticksLeft="15px"
                             />
+                            <h3>Ваш платёж:</h3>
                             <FormField id="trade_in_your_auto" placeholder="Ваш автомобиль" />
                             <FormField id="trade_in_your_name" placeholder="ФИО" />
                             <FormFieldPhone id="trade_in_credit_phone" />

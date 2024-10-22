@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './FieldSlider.module.scss';
 import type { FieldSliderProps } from '../../interfaces/component.interface';
 
-export const FieldDownPayment = (props: FieldSliderProps): React.JSX.Element => {
+export const FieldSlider = (props: FieldSliderProps): React.JSX.Element => {
     const { titleText, value, unitOfMeasurement, step, endpoints, ticksContentWidth, ticksLeft } = props;
     const [inputValue, setInputValue] = React.useState<number>(0);
     const max: number = (endpoints.length - 1) * 10;
