@@ -23,8 +23,8 @@ export type FieldSliderProps = {
     unitOfMeasurement: string;
     step: number;
     endpoints: string[];
-    ticksContentWidth: number;
-    tickItemWidth: number;
+    ticksContentWidth: string;
+    ticksLeft: string;
 };
 
 export type FormFieldProps = {

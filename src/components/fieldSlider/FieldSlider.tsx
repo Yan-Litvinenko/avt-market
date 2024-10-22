@@ -3,7 +3,7 @@ import styles from './FieldSlider.module.scss';
 import type { FieldSliderProps } from '../../interfaces/component.interface';
 
 export const FieldDownPayment = (props: FieldSliderProps): React.JSX.Element => {
-    const { titleText, value, unitOfMeasurement, step, endpoints, ticksContentWidth, tickItemWidth } = props;
+    const { titleText, value, unitOfMeasurement, step, endpoints, ticksContentWidth, ticksLeft } = props;
     const [inputValue, setInputValue] = React.useState<number>(0);
     const max: number = (endpoints.length - 1) * 10;
 
@@ -32,13 +32,9 @@ export const FieldDownPayment = (props: FieldSliderProps): React.JSX.Element => 
                 ></div>
             </div>
 
-            <div className={styles.field_slider__ticks} style={{ width: `${ticksContentWidth}%` }}>
+            <div className={styles.field_slider__ticks} style={{ width: ticksContentWidth, left: ticksLeft }}>
                 {endpoints.map((endpoint) => {
-                    return (
-                        <span key={endpoint} style={{ width: `${tickItemWidth}px` }}>
-                            {endpoint}
-                        </span>
-                    );
+                    return <span key={endpoint}>{endpoint}</span>;
                 })}
             </div>
         </label>

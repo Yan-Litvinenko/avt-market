@@ -59,8 +59,8 @@ export const TradeIn = (): React.JSX.Element => {
                                 unitOfMeasurement="мес."
                                 step={10}
                                 endpoints={['2', '6', '12', '24', '36', '48', '60', '72', '84', '96']}
-                                ticksContentWidth={94.5926}
-                                tickItemWidth={14}
+                                ticksContentWidth={'calc(100% - 23px)'}
+                                ticksLeft="17px"
                             />
                             <FieldDownPayment
                                 titleText="Первоначальный взнос:"
@@ -68,8 +68,8 @@ export const TradeIn = (): React.JSX.Element => {
                                 unitOfMeasurement="&#8381;"
                                 step={10}
                                 endpoints={['0%', '10%', '20%', '30%', '40%', '50%', '60%', '70%', '80%']}
-                                ticksContentWidth={93}
-                                tickItemWidth={16}
+                                ticksContentWidth={'calc(100% - 10px)'}
+                                ticksLeft="15px"
                             />
                             <FormField id="trade_in_your_auto" placeholder="Ваш автомобиль" />
                             <FormField id="trade_in_your_name" placeholder="ФИО" />
