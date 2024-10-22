@@ -34,11 +34,14 @@
         appearance: none;
         background: var(--main-color);
         border-radius: 50%;
+        border: 5px solid transparent;
         box-shadow: 0 4px 32px 0 var(--box-shadow);
         cursor: pointer;
         height: 24px;
         transition: scale var(--transition-time);
+        position: relative;
         width: 24px;
+        z-index: 2;
     }
 
     &__input_background {
@@ -64,7 +67,7 @@
 }
 
 @media (hover: hover) {
-    .label_down_payment__input:hover::-webkit-slider-thumb {
+    .field_slider__input:hover::-webkit-slider-thumb {
         scale: 1.1;
     }
 }

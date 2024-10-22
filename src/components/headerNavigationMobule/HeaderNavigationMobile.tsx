@@ -7,13 +7,22 @@ import { Phone } from '../phone/Phone';
 import { triggerStateBurgerMenu } from '../../redux/slice/menuNavigationSlice';
 import { favoritesSelector } from '../../redux/selectors';
 import { useSelector, useDispatch } from 'react-redux';
+import { scrollManager } from '../../helpers/Scroll';
 import type { AppDispatch } from '../../redux/store';
 
 export const HeaderNavigationMobile = (): React.JSX.Element => {
     const dispatch = useDispatch<AppDispatch>();
-    const burgerHandle = () => dispatch(triggerStateBurgerMenu());
     const menuState: boolean = useSelector(menuNavigationSelector).burgerMenuState;
     const favoritesCount: number = useSelector(favoritesSelector).favoritesCount;
+    const burgerHandle = () => {
+        dispatch(triggerStateBurgerMenu());
+
+        if (menuState) {
+            scrollManager.scrollOn();
+        } else {
+            scrollManager.scrollOff();
+        }
+    };
 
     return (
         <article className={styles.header_navigation_mobile}>

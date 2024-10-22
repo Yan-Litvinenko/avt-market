@@ -75,7 +75,7 @@ export const TradeIn = (): React.JSX.Element => {
                             <FormField id="trade_in_your_name" placeholder="ФИО" />
                             <FormFieldPhone id="trade_in_credit_phone" />
                             <CheckboxAgree id="trade_in_agree" />
-                            <FormSendButton textContent="Отправить заявку" />
+                            <FormSendButton textContent="Оставить заявку" />
                         </form>
                         <p className={styles.trade_in__description}>
                             Автосалон «YouAuto» предлагает услугу Trade-In, которая пользуется популярностью на

@@ -32,6 +32,11 @@ export type FormFieldProps = {
     placeholder: string;
 };
 
+export type FormFieldSelectYearProps = {
+    textContent: string;
+    years: number[];
+};
+
 export type CheckboxProps = {
     id: string;
     textContent: string;

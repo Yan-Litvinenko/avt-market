@@ -4,12 +4,16 @@ import { Link } from 'react-router-dom';
 import { menuNavigationSelector } from '../../redux/selectors';
 import { useSelector, useDispatch } from 'react-redux';
 import { triggerStateBurgerMenu } from '../../redux/slice/menuNavigationSlice';
+import { scrollManager } from '../../helpers/Scroll';
 import type { MenuElement } from '../../interfaces/interface';
 import type { AppDispatch } from '../../redux/store';
 
 export const BurgerMenu = (): React.JSX.Element => {
     const dispatch = useDispatch<AppDispatch>();
-    const handleFollowLink = () => dispatch(triggerStateBurgerMenu());
+    const handleFollowLink = () => {
+        dispatch(triggerStateBurgerMenu());
+        scrollManager.scrollOn();
+    };
     const menu: MenuElement[] = useSelector(menuNavigationSelector).menuNavigationElements;
     const menuState: boolean = useSelector(menuNavigationSelector).burgerMenuState;
 
