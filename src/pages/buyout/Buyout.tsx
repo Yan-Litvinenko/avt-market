@@ -7,7 +7,7 @@ import { FormFieldPhone } from '../../components/formFieldPhone/FormFieldPhone';
 import { Checkbox } from '../../components/checkbox/Checkbox';
 import { CheckboxAgree } from '../../components/checkboxAgree/CheckboxAgree';
 import { FormSendButton } from '../../components/formSendButton/FormSendButton';
-import { FormFieldSelectYear } from '../../components/formFieldSelectYear/FormFieldSelectYear';
+import { FormFieldSelect } from '../../components/formFieldSelect/FormFieldSelect';
 import type { BenefitsProps } from '../../interfaces/interface';
 
 const benefits: BenefitsProps[] = [
@@ -41,7 +41,7 @@ export const Buyout = (): React.JSX.Element => {
                     <form className={styles.buyout__form}>
                         <FormField id="buyout_mark" placeholder="Марка" />
                         <FormField id="buyout_model" placeholder="Модель" />
-                        <FormFieldSelectYear textContent="Год" years={createYearsArray(2004, 2024)} />
+                        <FormFieldSelect textContent="Год" items={createYearsArray(2004, 2024)} />
                         <FormField id="buyout_mileage" placeholder="Пробег" />
                         <FormField id="buyout_name" placeholder="ФИО" />
                         <FormFieldPhone id="buyout_phone" />

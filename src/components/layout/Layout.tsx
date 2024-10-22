@@ -6,6 +6,7 @@ import { Header } from '../header/Header';
 import { ModalBenefit } from '../modalBenefit/ModalBenefit';
 import { Outlet } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { ModalCallback } from '../modalCallback/ModalCallback';
 import { modalPromotionSelector } from '../../redux/selectors';
 
 export const Layout = (): React.JSX.Element => {
@@ -19,6 +20,7 @@ export const Layout = (): React.JSX.Element => {
             </main>
             <Footer />
             <BurgerMenu />
+            <ModalCallback />
             {modalPromotionState ? <ModalBenefit /> : null}
         </div>
     );

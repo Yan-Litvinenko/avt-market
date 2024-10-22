@@ -20,3 +20,7 @@ export type MediaQuerySlice = {
     isSmall: boolean;
     isMedium: boolean;
 };
+
+export type CallbackModalSlice = {
+    callbackModalState: boolean;
+};
