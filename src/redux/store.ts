@@ -4,6 +4,7 @@ import mediaQuerySlice from './slice/mediaQuerySlice';
 import favoritesSlice from './slice/favoritesSlice';
 import callbackModalSlice from './slice/callbackModalSlice';
 import { configureStore } from '@reduxjs/toolkit';
+import banksListSlice from './slice/banksListSlice';
 import type { ThunkAction, Action } from '@reduxjs/toolkit';
 
 const store = configureStore({
@@ -13,6 +14,7 @@ const store = configureStore({
         modalPromotion: modalPromotionSlice,
         favorites: favoritesSlice,
         mediaQuery: mediaQuerySlice,
+        banksList: banksListSlice,
     },
 });
 

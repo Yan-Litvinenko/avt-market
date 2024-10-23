@@ -1,3 +1,4 @@
+import { BanksListItem } from './component.interface';
 import type { ModalPromotionData, FavoritesLocalStorage, MenuElement } from './interface';
 
 export type MenuNavigationSlice = {
@@ -23,4 +24,12 @@ export type MediaQuerySlice = {
 
 export type CallbackModalSlice = {
     callbackModalState: boolean;
+};
+
+export type BanksListSlice = {
+    banksList: BanksListItem[];
+    stateLoad: {
+        isLoad: boolean;
+        error: boolean;
+    };
 };

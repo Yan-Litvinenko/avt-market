@@ -5,3 +5,4 @@ export const modalPromotionSelector = (state: RootState) => state.modalPromotion
 export const modalCallbackSelector = (state: RootState) => state.modalCallback;
 export const favoritesSelector = (state: RootState) => state.favorites;
 export const mediaQuerySelector = (state: RootState) => state.mediaQuery;
+export const banksListSelector = (state: RootState) => state.banksList;

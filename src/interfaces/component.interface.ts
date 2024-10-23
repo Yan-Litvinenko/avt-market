@@ -46,4 +46,9 @@ export type FormFieldPhoneProps = {
     id: string;
 };
 
+export type BanksListItem = {
+    name: string;
+    id: number;
+};
+
 export type CardAutoProps = AutoCard & { addedFavorites: boolean };
