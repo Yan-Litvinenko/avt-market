@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './BankList.module.scss';
 import { banksListSelector } from '../../redux/selectors';
 import { ErrorLoading } from '../errorLoading/ErrorLoading';
+import { getBankImage } from '../../helpers/getBankImage';
 import { Link } from 'react-router-dom';
 import { Loader } from '../loader/Loader';
 import { useSelector } from 'react-redux';
@@ -25,8 +26,7 @@ export const BanksList = (): React.JSX.Element => {
             {banksList.map(({ name, id }) => {
                 return (
                     <li className={styles.banks_list__item} key={id}>
-                        {/* <img src="" alt="Тут будет картинка банка" /> */}
-                        {name}
+                        <img className={styles.banks_list__img} src={getBankImage(id)} alt={name} />
                         <div className={styles.banks_list__helper}>
                             <p>Отправить заявку</p>
                             <p>в {name}</p>
