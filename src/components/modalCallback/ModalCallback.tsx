@@ -3,8 +3,8 @@ import styles from './ModalCallback.module.scss';
 import { callbackModalTrigger } from '../../redux/slice/callbackModalSlice';
 import { CheckboxAgree } from '../checkboxAgree/CheckboxAgree';
 import { Cross } from '../cross/Cross';
-import { FormField } from '../formField/FormField';
-import { FormFieldPhone } from '../formFieldPhone/FormFieldPhone';
+// import { FormField } from '../formField/FormField';
+// import { FormFieldPhone } from '../formFieldPhone/FormFieldPhone';
 import { FormFieldSelect } from '../formFieldSelect/FormFieldSelect';
 import { FormSendButton } from '../formSendButton/FormSendButton';
 import { useDispatch, useSelector } from 'react-redux';
@@ -32,8 +32,8 @@ export const ModalCallback = (): React.JSX.Element => {
                             <span>Оставьте заявку, и наши операторы свяжутся с вами в течение 5 минут!</span>
                             <Cross className={styles.modal_callback__cross} handler={crossHandler} />
                         </h4>
-                        <FormField id="callback_name" placeholder="ФИО" />
-                        <FormFieldPhone id="callback_phone" />
+                        {/* <FormField id="callback_name" placeholder="ФИО" />
+                        <FormFieldPhone id="callback_phone" /> */}
                         <FormFieldSelect
                             textContent="Когда вам перезвонить"
                             items={[

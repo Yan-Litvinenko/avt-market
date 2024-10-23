@@ -1,4 +1,6 @@
+import type { UseFormRegister, UseFormRegisterReturn } from 'react-hook-form';
 import type { AutoCard } from './interface';
+import type { TradeInFormData } from './form.interface';
 
 export type SliderElementProps = {
     descriptionStroke: string[];
@@ -18,18 +20,21 @@ export type CrossProps = {
 };
 
 export type FieldSliderProps = {
-    titleText: string;
-    value: number;
-    unitOfMeasurement: string;
-    step: number;
-    endpoints: string[];
+    endpoints: string[] | number[];
+    initValue: number;
+    register: UseFormRegisterReturn<'credit_terms' | 'initial_contribution'>;
+    steps: number[];
     ticksContentWidth: string;
     ticksLeft: string;
+    titleText: string;
+    unitOfMeasurement: string;
 };
 
 export type FormFieldProps = {
     id: string;
     placeholder: string;
+    register: UseFormRegisterReturn<'name' | 'custom_car'>;
+    isError: boolean;
 };
 
 export type FormFieldSelectProps = {
@@ -40,10 +45,12 @@ export type FormFieldSelectProps = {
 export type CheckboxProps = {
     id: string;
     textContent: string;
+    register?: UseFormRegisterReturn<'agree'>;
 };
 
 export type FormFieldPhoneProps = {
     id: string;
+    register: UseFormRegister<TradeInFormData>;
 };
 
 export type BanksListItem = {
@@ -52,3 +59,8 @@ export type BanksListItem = {
 };
 
 export type CardAutoProps = AutoCard & { addedFavorites: boolean };
+
+export type SelectAutoButtonProps = {
+    register: UseFormRegisterReturn<'car_id'>;
+    isError: boolean;
+};

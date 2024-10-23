@@ -1,15 +1,17 @@
 import React from 'react';
 import styles from './TradeIn.module.scss';
-import { Benefits } from '../../components/benefits/Benefits';
 import { BanksList } from '../../components/banksList/BanksList';
-import { SelectAutoButton } from '../../components/selectAutoButton/SelectAutoButton';
+import { Benefits } from '../../components/benefits/Benefits';
 import { Checkbox } from '../../components/checkbox/Checkbox';
-import { FormField } from '../../components/formField/FormField';
 import { CheckboxAgree } from '../../components/checkboxAgree/CheckboxAgree';
-import { FormSendButton } from '../../components/formSendButton/FormSendButton';
-import { FormFieldPhone } from '../../components/formFieldPhone/FormFieldPhone';
 import { FieldSlider } from '../../components/fieldSlider/FieldSlider';
+import { FormField } from '../../components/formField/FormField';
+import { FormFieldPhone } from '../../components/formFieldPhone/FormFieldPhone';
+import { FormSendButton } from '../../components/formSendButton/FormSendButton';
+import { SelectAutoButton } from '../../components/selectAutoButton/SelectAutoButton';
+import { useForm } from 'react-hook-form';
 import type { BenefitsProps } from '../../interfaces/interface';
+import type { TradeInFormData } from '../../interfaces/form.interface';
 
 const benefits: BenefitsProps[] = [
     {
@@ -41,7 +43,46 @@ const benefits: BenefitsProps[] = [
     },
 ];
 
+const sliderField = {
+    steps: {
+        credit_terms: [2, 6, 12, 24, 36, 48, 60, 72, 84, 96],
+        initial_contribution: [0, 10, 20, 30, 40, 50, 60, 70, 80],
+    },
+    endpoints: {
+        credit_terms: [2, 6, 12, 24, 36, 48, 60, 72, 84, 96],
+        initial_contribution: ['0%', '10%', '20%', '30%', '40%', '50%', '60%', '70%', '80%'],
+    },
+};
+
 export const TradeIn = (): React.JSX.Element => {
+    const {
+        register,
+        formState: { errors },
+        handleSubmit,
+        setError,
+    } = useForm<TradeInFormData>({ mode: 'onChange' });
+
+    const onSubmit = (data: TradeInFormData) => {
+        if (typeof data.car_id !== 'number') {
+            setError('car_id', {
+                type: 'select',
+                message: 'Выберите машину',
+            });
+            return;
+        }
+
+        const result = {
+            car_id: data.car_id,
+            credets_terms: sliderField.steps.credit_terms[data.credit_terms],
+            custom_car: data.custom_car,
+            initial_contribution: sliderField.steps.initial_contribution[data.initial_contribution],
+            name: data.name,
+            phone: data.phone,
+        };
+
+        alert(JSON.stringify(result));
+    };
+
     return (
         <>
             <div className="container">
@@ -50,34 +91,67 @@ export const TradeIn = (): React.JSX.Element => {
                     <Benefits benefits={benefits} />
 
                     <div className={styles.trade_in__content}>
-                        <form className={styles.trade_in__form}>
-                            <SelectAutoButton />
+                        <form className={styles.trade_in__form} onSubmit={handleSubmit(onSubmit)}>
+                            <SelectAutoButton
+                                isError={Boolean(errors.car_id?.message)}
+                                register={register('car_id', {
+                                    pattern: {
+                                        value: /^[0-9]+$/,
+                                        message: 'Выберите машину',
+                                    },
+                                })}
+                            />
                             <Checkbox id="trade_in_credit" textContent="Купить авто в кредит" />
                             <FieldSlider
+                                endpoints={sliderField.endpoints.credit_terms}
+                                initValue={0}
+                                register={register('credit_terms', { required: true })}
+                                steps={sliderField.steps.credit_terms}
+                                ticksContentWidth={'calc(100% - 19px)'}
+                                ticksLeft="14px"
                                 titleText="Срок кредита, мес.:"
-                                value={0}
                                 unitOfMeasurement="мес."
-                                step={10}
-                                endpoints={['2', '6', '12', '24', '36', '48', '60', '72', '84', '96']}
-                                ticksContentWidth={'calc(100% - 23px)'}
-                                ticksLeft="17px"
                             />
                             <FieldSlider
-                                titleText="Первоначальный взнос:"
-                                value={0}
-                                unitOfMeasurement="&#8381;"
-                                step={10}
-                                endpoints={['0%', '10%', '20%', '30%', '40%', '50%', '60%', '70%', '80%']}
+                                endpoints={sliderField.endpoints.initial_contribution}
+                                initValue={0}
+                                register={register('initial_contribution', { required: true })}
+                                steps={sliderField.steps.initial_contribution}
                                 ticksContentWidth={'calc(100% - 10px)'}
                                 ticksLeft="15px"
+                                titleText="Первоначальный взнос:"
+                                unitOfMeasurement="&#8381;"
                             />
                             <h3>Ваш платёж:</h3>
-                            <FormField id="trade_in_your_auto" placeholder="Ваш автомобиль" />
-                            <FormField id="trade_in_your_name" placeholder="ФИО" />
-                            <FormFieldPhone id="trade_in_credit_phone" />
-                            <CheckboxAgree id="trade_in_agree" />
+                            <FormField
+                                register={register('custom_car', {
+                                    required: true,
+                                    minLength: {
+                                        value: 2,
+                                        message: 'Минимальная длина - 2 символа.',
+                                    },
+                                })}
+                                id="trade_in_your_auto"
+                                placeholder="Ваш автомобиль"
+                                isError={Boolean(errors.custom_car?.message)}
+                            />
+                            <FormField
+                                register={register('name', {
+                                    required: true,
+                                    minLength: {
+                                        value: 2,
+                                        message: 'Минимальная длина - 2 символа.',
+                                    },
+                                })}
+                                id="trade_in_your_name"
+                                placeholder="ФИО"
+                                isError={Boolean(errors.name?.message)}
+                            />
+                            <FormFieldPhone register={register} id="trade_in_credit_phone" />
+                            <CheckboxAgree register={register('agree', { required: true })} id="trade_in_agree" />
                             <FormSendButton textContent="Оставить заявку" />
                         </form>
+
                         <p className={styles.trade_in__description}>
                             Автосалон «YouAuto» предлагает услугу Trade-In, которая пользуется популярностью на
                             автомобильном рынке. Trade-In предполагает обмен вашего текущего автомобиля на более новый.

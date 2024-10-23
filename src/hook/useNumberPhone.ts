@@ -1,18 +1,22 @@
 import React from 'react';
-import type { UseNumberPhoneProps, UseNumberPhone } from '../interfaces/hook.interface';
+import type { UseNumberPhone } from '../interfaces/hook.interface';
 
-export const useNumberPhone = ({ phoneInput }: UseNumberPhoneProps): UseNumberPhone => {
+export const useNumberPhone = (): UseNumberPhone => {
     const PHONE_INIT = '+7 (___) ___-__-__';
     const [value, setValue] = React.useState<string>('');
     const cursorPosition = React.useRef<number>(PHONE_INIT.indexOf('_'));
+    const inputElement = React.useRef<HTMLInputElement | null>(null);
+
+    const setInputRef = (el: HTMLInputElement | null) => {
+        inputElement.current = el;
+    };
 
     const setCursorIndex = (newPositionCursor: number): void => {
         cursorPosition.current = newPositionCursor;
     };
 
     const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>): void => {
-        const input = phoneInput.current;
-
+        const input = inputElement.current;
         if (!input) return;
 
         event.preventDefault();
@@ -23,9 +27,7 @@ export const useNumberPhone = ({ phoneInput }: UseNumberPhoneProps): UseNumberPh
                 setCursorIndex(newValue.indexOf('_') || 4);
                 return newValue;
             });
-        }
-
-        if (['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'].includes(event.key)) {
+        } else if (/^[0-9]$/.test(event.key)) {
             setValue((prev) => {
                 const newValue = prev.replace('_', event.key);
                 setCursorIndex(newValue.indexOf('_') || 4);
@@ -36,7 +38,7 @@ export const useNumberPhone = ({ phoneInput }: UseNumberPhoneProps): UseNumberPh
 
     React.useEffect(() => {
         const focus = (): void => {
-            const input = phoneInput.current;
+            const input = inputElement.current;
             if (input) {
                 if (input.value === '') {
                     setValue(PHONE_INIT);
@@ -48,13 +50,13 @@ export const useNumberPhone = ({ phoneInput }: UseNumberPhoneProps): UseNumberPh
         };
 
         const blur = (): void => {
-            const input = phoneInput.current;
+            const input = inputElement.current;
             if (input && input.value === PHONE_INIT) {
                 setValue('');
             }
         };
 
-        const currentInput = phoneInput.current;
+        const currentInput = inputElement.current;
         currentInput?.addEventListener('focus', focus);
         currentInput?.addEventListener('blur', blur);
 
@@ -65,11 +67,11 @@ export const useNumberPhone = ({ phoneInput }: UseNumberPhoneProps): UseNumberPh
     }, []);
 
     React.useEffect(() => {
-        const input = phoneInput.current;
+        const input = inputElement.current;
         if (input) {
             input.setSelectionRange(cursorPosition.current, cursorPosition.current);
         }
     }, [value]);
 
-    return [value, handleKeyDown];
+    return [value, handleKeyDown, setInputRef];
 };

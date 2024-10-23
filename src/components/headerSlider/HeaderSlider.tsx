@@ -4,7 +4,7 @@ import SlideImage1_x2 from '../../assets/images/slider-1@2x.webp';
 import SlideImage2 from '../../assets/images/slider-2.webp';
 import SlideImage2_x2 from '../../assets/images/slider-2@2x.webp';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { HeaderSliderElement } from '../HeaderSliderElement/HeaderSliderElement';
+import { HeaderSliderElement } from '../headerSliderElement/HeaderSliderElement';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 import 'swiper/swiper-bundle.css';
 

@@ -3,8 +3,11 @@ import styles from './FormSendButton.module.scss';
 
 export const FormSendButton = ({ textContent }: { textContent: string }): React.JSX.Element => {
     return (
-        <button className={styles.form_send_button} type="submit">
-            {textContent}
-        </button>
+        <input
+            className={styles.form_send_button}
+            type="submit"
+            value={textContent}
+            onClick={() => console.log('click')}
+        />
     );
 };

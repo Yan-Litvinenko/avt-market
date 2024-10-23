@@ -1,10 +1,14 @@
 import React from 'react';
 import styles from './SelectAutoButton.module.scss';
+import type { SelectAutoButtonProps } from '../../interfaces/component.interface';
 
-export const SelectAutoButton = (): React.JSX.Element => {
+export const SelectAutoButton = ({ register, isError }: SelectAutoButtonProps): React.JSX.Element => {
     return (
-        <button className={styles.select_auto_button} type="button">
-            Выбрать автомобиль
-        </button>
+        <input
+            {...register}
+            className={`${styles.select_auto_button} ${isError ? 'field_error' : ''}`}
+            type="button"
+            value={'Выбрать автомобиль'}
+        />
     );
 };

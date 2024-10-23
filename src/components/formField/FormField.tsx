@@ -3,11 +3,17 @@ import styles from './FormField.module.scss';
 import type { FormFieldProps } from '../../interfaces/component.interface';
 
 export const FormField = (props: FormFieldProps): React.JSX.Element => {
-    const { id, placeholder } = props;
+    const { id, placeholder, register, isError } = props;
 
     return (
         <label className={styles.form_field} htmlFor={id}>
-            <input className={styles.form_field__input} id={id} type="text" placeholder={placeholder} />
+            <input
+                {...register}
+                className={`${styles.form_field__input} ${isError ? 'field_error' : ''}`}
+                id={id}
+                type="text"
+                placeholder={placeholder}
+            />
         </label>
     );
 };
