@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './LatestArrivals.module.scss';
-import { LatestArrivalsSlider } from '../latestArrivalsSlider/LatestArrivalsSlider';
+import { LatestArrivalsSlider } from '../LatestArrivalsSlider/LatestArrivalsSlider';
 import { Link } from 'react-router-dom';
 
 export const LatestArrivals = (): React.JSX.Element => {

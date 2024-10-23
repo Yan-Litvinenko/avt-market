@@ -2,7 +2,11 @@
     gap: 16px;
     display: flex;
     flex-wrap: wrap;
-    margin-bottom: 100px;
+    position: relative;
+
+    &:has(.banks_list__item) {
+        margin-bottom: 100px;
+    }
 
     &__item {
         align-items: center;

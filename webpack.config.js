@@ -6,6 +6,7 @@ const TerserWebpackPlugin = require('terser-webpack-plugin');
 const CssMinimizerWebpackPlugin = require('css-minimizer-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
 const webpack = require('webpack');
+const dotenv = require('dotenv').config();
 
 const isDev = process.env.NODE_ENV === 'development';
 const isProd = !isDev;
@@ -100,9 +101,12 @@ function addPlugins() {
         }),
         new CleanWebpackPlugin(),
         new MiniCssExtractPlugin({ filename: '[name].[contenthash].css' }),
-        new webpack.DefinePlugin({
-            'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
-        }),
+        new webpack.DefinePlugin(
+            Object.keys(process.env).reduce((prev, next) => {
+                prev[`process.env.${next}`] = JSON.stringify(process.env[next]);
+                return prev;
+            }, {}),
+        ),
     ];
 
     if (isDev) {

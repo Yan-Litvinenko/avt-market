@@ -1,0 +1,12 @@
+.loader_wrapper {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    min-height: 100px;
+    padding: 20px 0px;
+    width: 100%;
+
+    & svg {
+        stroke: var(--main-color);
+    }
+}

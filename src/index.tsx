@@ -7,6 +7,7 @@ import { Contacts } from './pages/contacts/Contacts';
 import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router-dom';
 import { Home } from './pages/home/Home';
 import { homeLoader } from './loader/homeLoader';
+import { banksLoader } from './loader/banksLoader';
 import { InitialProvider } from './hoc/InitialProvider';
 import { Installment } from './pages/installment/Installment';
 import { Layout } from './components/layout/Layout';
@@ -23,7 +24,7 @@ const router = createBrowserRouter(
             <Route path="installment" element={<Installment />} />
             <Route path="buyout" element={<Buyout />} />
             <Route path="exchange" element={<TradeIn />} />
-            <Route path="banks" element={<Banks />} />
+            <Route path="banks" element={<Banks />} loader={banksLoader} />
             <Route path="contacts" element={<Contacts />} />
             <Route path="about" element={<About />} />
         </Route>,

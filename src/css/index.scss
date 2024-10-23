@@ -1,9 +1,9 @@
-@import './reset.scss';
-@import './fonts.scss';
-@import './variables.scss';
+@use './reset.scss' as *;
+@use './fonts.scss' as *;
+@use './variables.scss' as *;
 
-@import 'swiper/css';
-@import 'swiper/css/navigation';
+@use 'swiper/css' as *;
+@use 'swiper/css/navigation' as *;
 
 *,
 *::before,
