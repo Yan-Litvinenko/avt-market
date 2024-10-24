@@ -1,4 +1,5 @@
 import { useForm } from 'react-hook-form';
+import { custmFetch } from '../helpers/customFetch';
 import type { BuyoutFormData } from '../interfaces/form.interface';
 import type { BuyoutPostQuery } from '../interfaces/query.interface';
 import type { UseBuyout } from '../interfaces/hook.interface';
@@ -26,17 +27,7 @@ export const useBuyout = (): UseBuyout => {
             year: data.year,
         };
 
-        const response = await fetch(`${process.env.REACT_APP_BASE_URL!}/buyout`, {
-            method: 'POST',
-            body: JSON.stringify(dataQuery),
-            headers: {
-                'content-type': 'application/json',
-            },
-        });
-
-        const resolveResponse = await response.json();
-
-        alert(JSON.stringify(resolveResponse));
+        custmFetch('buyout', JSON.stringify(dataQuery), 'POST');
     };
 
     return { handleSubmit, onSubmit, errors, register, setValue };

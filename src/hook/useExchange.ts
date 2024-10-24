@@ -1,4 +1,5 @@
 import { useForm } from 'react-hook-form';
+import { custmFetch } from '../helpers/customFetch';
 import type { ExchangeFormData } from '../interfaces/form.interface';
 import type { ExchangePostQuery } from '../interfaces/query.interface';
 import type { UseExchange } from '../interfaces/hook.interface';
@@ -53,19 +54,7 @@ export const useExchange = (): UseExchange => {
             } as ExchangePostQuery,
         };
 
-        const response = await fetch(`${process.env.REACT_APP_BASE_URL!}/exchange`, {
-            method: 'POST',
-            body: JSON.stringify(dataQuery),
-            headers: {
-                'content-type': 'application/json',
-            },
-        });
-
-        if (response.ok) {
-            // redirect
-            const resolve = await response.json();
-            alert(JSON.stringify(resolve));
-        }
+        custmFetch('exchange', JSON.stringify(dataQuery), 'POST');
     };
 
     return { sliderField, handleSubmit, onSubmit, register, errors, inCreditField };

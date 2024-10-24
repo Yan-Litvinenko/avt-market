@@ -16,3 +16,11 @@ export type BuyoutPostQuery = {
     year: number;
     mileage: number;
 };
+
+export type InstallmentPostQuery = {
+    car_id: number;
+    name: string;
+    phone: string;
+    credit_term: number;
+    initial_contribution: number;
+};

@@ -1,3 +1,5 @@
+export type URL = 'installment' | 'buyout' | 'exchange';
+
 export type InStockCar = {
     id: number;
     name: string;

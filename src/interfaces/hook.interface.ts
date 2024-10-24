@@ -1,5 +1,5 @@
 import type { SliderField } from './interface';
-import type { BuyoutFormData, ExchangeFormData } from './form.interface';
+import type { BuyoutFormData, ExchangeFormData, InstallmentFormData } from './form.interface';
 import type { UseFormHandleSubmit, UseFormRegister, FieldErrors, UseFormSetValue } from 'react-hook-form';
 
 export type UseNumberPhoneProps = {
@@ -27,4 +27,12 @@ export type UseBuyout = {
     register: UseFormRegister<BuyoutFormData>;
     errors: FieldErrors<BuyoutFormData>;
     setValue: UseFormSetValue<BuyoutFormData>;
+};
+
+export type UseInstallment = {
+    errors: FieldErrors<InstallmentFormData>;
+    handleSubmit: UseFormHandleSubmit<InstallmentFormData, undefined>;
+    onSubmit: (data: InstallmentFormData) => Promise<void>;
+    register: UseFormRegister<InstallmentFormData>;
+    sliderField: SliderField;
 };
