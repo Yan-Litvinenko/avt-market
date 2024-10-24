@@ -5,7 +5,7 @@ import { CheckboxAgree } from '../checkboxAgree/CheckboxAgree';
 import { Cross } from '../cross/Cross';
 // import { FormField } from '../formField/FormField';
 // import { FormFieldPhone } from '../formFieldPhone/FormFieldPhone';
-import { FormFieldSelect } from '../formFieldSelect/FormFieldSelect';
+// import { FormFieldSelect } from '../formFieldSelect/FormFieldSelect';
 import { FormSendButton } from '../formSendButton/FormSendButton';
 import { useDispatch, useSelector } from 'react-redux';
 import { modalCallbackSelector } from '../../redux/selectors';
@@ -34,8 +34,8 @@ export const ModalCallback = (): React.JSX.Element => {
                         </h4>
                         {/* <FormField id="callback_name" placeholder="ФИО" />
                         <FormFieldPhone id="callback_phone" /> */}
-                        <FormFieldSelect
-                            textContent="Когда вам перезвонить"
+                        {/* <FormFieldSelect
+                            // textContent="Когда вам перезвонить"
                             items={[
                                 'Как можно скорее',
                                 'с 17:00 до 18:00',
@@ -43,7 +43,7 @@ export const ModalCallback = (): React.JSX.Element => {
                                 'с 19:00 до 20:00',
                                 'с 20:00 до 21:00',
                             ]}
-                        />
+                        /> */}
                         <CheckboxAgree id="callback_agree" />
                         <FormSendButton textContent="Перезвонить мне" />
                     </form>

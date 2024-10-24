@@ -24,7 +24,7 @@ export const Exchange = (): React.JSX.Element => {
                     <div className={styles.trade_in__content}>
                         <form className={styles.trade_in__form} onSubmit={handleSubmit(onSubmit)}>
                             <SelectAutoButton
-                                isError={Boolean(errors.car_id?.message)}
+                                isError={Boolean(errors.car_id)}
                                 register={register('car_id', {
                                     // pattern: {
                                     //     value: /^[0-9]+$/,
@@ -36,6 +36,7 @@ export const Exchange = (): React.JSX.Element => {
                                 register={register('trade_in_credit')}
                                 id="trade_in_credit"
                                 textContent="Купить авто в кредит"
+                                isError={'no error'}
                             />
 
                             <div
@@ -75,7 +76,7 @@ export const Exchange = (): React.JSX.Element => {
                                 })}
                                 id="trade_in_your_auto"
                                 placeholder="Ваш автомобиль"
-                                isError={Boolean(errors.customer_car?.message)}
+                                isError={Boolean(errors.customer_car)}
                             />
                             <FormField
                                 register={register('name', {
@@ -87,10 +88,18 @@ export const Exchange = (): React.JSX.Element => {
                                 })}
                                 id="trade_in_your_name"
                                 placeholder="ФИО"
-                                isError={Boolean(errors.name?.message)}
+                                isError={Boolean(errors.name)}
                             />
-                            <FormFieldPhone register={register} id="trade_in_credit_phone" />
-                            <CheckboxAgree register={register('agree', { required: true })} id="trade_in_agree" />
+                            <FormFieldPhone
+                                register={register}
+                                id="trade_in_credit_phone"
+                                isError={Boolean(errors.phone)}
+                            />
+                            <CheckboxAgree
+                                register={register('agree', { required: true })}
+                                id="trade_in_agree"
+                                isError={Boolean(errors.agree)}
+                            />
                             <FormSendButton textContent="Оставить заявку" />
                         </form>
 

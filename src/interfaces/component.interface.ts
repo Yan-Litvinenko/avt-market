@@ -1,10 +1,6 @@
-import type { FieldValues, UseFormRegister, UseFormRegisterReturn } from 'react-hook-form';
 import type { AutoCard } from './interface';
-import type {
-    RegisterNameFormFieldExchange,
-    RegisterNameFormFieldSlider,
-    RegisterNameCheckbox,
-} from './form.interface';
+import type { FieldValues, UseFormRegister, UseFormRegisterReturn, UseFormSetValue, Path } from 'react-hook-form';
+import type { RegisterNameFormFieldSlider, RegisterNameCheckbox, RegisterNameFormField } from './form.interface';
 
 export type SliderElementProps = {
     descriptionStroke: string[];
@@ -37,24 +33,30 @@ export type FieldSliderProps = {
 export type FormFieldProps = {
     id: string;
     placeholder: string;
-    register: UseFormRegisterReturn<RegisterNameFormFieldExchange>;
+    register: UseFormRegisterReturn<RegisterNameFormField>;
     isError: boolean;
 };
 
-export type FormFieldSelectProps = {
-    textContent: string;
+export type FormFieldSelectProps<T extends FieldValues> = {
+    fieldName: Path<T>;
+    isError: boolean;
     items: number[] | string[];
+    register?: UseFormRegisterReturn<'year'>;
+    setFormValue: UseFormSetValue<T>;
+    placeholder: string;
 };
 
 export type CheckboxProps = {
     id: string;
-    textContent: string;
+    isError?: boolean | 'no error';
     register?: UseFormRegisterReturn<RegisterNameCheckbox>;
+    textContent: string;
 };
 
 export type FormFieldPhoneProps<T extends FieldValues> = {
     id: string;
     register: UseFormRegister<T>;
+    isError: boolean;
 };
 
 export type BanksListItem = {
@@ -65,6 +67,10 @@ export type BanksListItem = {
 export type CardAutoProps = AutoCard & { addedFavorites: boolean };
 
 export type SelectAutoButtonProps = {
-    register: UseFormRegisterReturn<'car_id'>;
     isError: boolean;
+    register: UseFormRegisterReturn<'car_id'>;
+};
+
+export type FormSendButtonProps = {
+    textContent: string;
 };
