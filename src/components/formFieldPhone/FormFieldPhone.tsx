@@ -10,7 +10,10 @@ export const FormFieldPhone = (props: FormFieldPhoneProps): React.JSX.Element =>
     return (
         <label className={styles.label_phone} htmlFor={id}>
             <input
-                {...register('phone', { pattern: { value: /^\+7 (d{3}) d{3}-d{2}-d{2}$/, message: 'Введите номер' } })}
+                {...register('phone', {
+                    pattern: { value: /^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$/, message: 'Введите номер' },
+                })}
+                autoComplete="off"
                 className={styles.label_phone__input}
                 onKeyDown={handleKeyDown}
                 placeholder="Телефон"

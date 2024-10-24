@@ -27,6 +27,12 @@
         padding: 16px;
     }
 
+    &__extra_fields {
+        transition: all ease 0.5s;
+        overflow: hidden;
+        height: 100%;
+    }
+
     &__description {
         border-radius: 10px;
         box-shadow: var(--box-shadow);

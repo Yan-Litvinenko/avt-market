@@ -14,7 +14,7 @@ export const CheckboxAgree = (props: Omit<CheckboxProps, 'textContent'>): React.
                 <CheckMarker />
             </div>
             <p className={styles.checkbox_label__text}>
-                Согласен на
+                Согласен на{' '}
                 <Link className={styles.checkbox_label__link} to={'/'}>
                     обработку персональных данных
                 </Link>

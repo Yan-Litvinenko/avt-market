@@ -8,6 +8,7 @@ export const FormField = (props: FormFieldProps): React.JSX.Element => {
     return (
         <label className={styles.form_field} htmlFor={id}>
             <input
+                autoComplete="off"
                 {...register}
                 className={`${styles.form_field__input} ${isError ? 'field_error' : ''}`}
                 id={id}

@@ -12,6 +12,7 @@ import { SelectAutoButton } from '../../components/selectAutoButton/SelectAutoBu
 import { useForm } from 'react-hook-form';
 import type { BenefitsProps } from '../../interfaces/interface';
 import type { TradeInFormData } from '../../interfaces/form.interface';
+import type { ExchangePostQuery } from '../../interfaces/query.interface';
 
 const benefits: BenefitsProps[] = [
     {
@@ -59,28 +60,52 @@ export const TradeIn = (): React.JSX.Element => {
         register,
         formState: { errors },
         handleSubmit,
-        setError,
-    } = useForm<TradeInFormData>({ mode: 'onChange' });
+        // setError,
+        watch,
+    } = useForm<TradeInFormData>({
+        mode: 'onSubmit',
+        defaultValues: {
+            trade_in_credit: true,
+        },
+    });
 
-    const onSubmit = (data: TradeInFormData) => {
-        if (typeof data.car_id !== 'number') {
-            setError('car_id', {
-                type: 'select',
-                message: 'Выберите машину',
-            });
-            return;
-        }
+    const inCreditField: boolean = watch('trade_in_credit', true);
 
-        const result = {
-            car_id: data.car_id,
-            credets_terms: sliderField.steps.credit_terms[data.credit_terms],
-            custom_car: data.custom_car,
-            initial_contribution: sliderField.steps.initial_contribution[data.initial_contribution],
-            name: data.name,
-            phone: data.phone,
+    const onSubmit = async (data: TradeInFormData) => {
+        // if (typeof data.car_id !== 'number') {
+        //     setError('car_id', {
+        //         type: 'select',
+        //         message: 'Выберите машину',
+        //     });
+        //     return;
+        // }
+
+        const dataQuery = {
+            exchange: {
+                car_id: 1,
+                credit_term: data.trade_in_credit ? sliderField.steps.credit_terms[data.credit_term] : 0,
+                customer_car: data.customer_car,
+                initial_contribution: data.trade_in_credit
+                    ? sliderField.steps.initial_contribution[data.initial_contribution]
+                    : 0,
+                name: data.name,
+                phone: data.phone,
+            } as ExchangePostQuery,
         };
 
-        alert(JSON.stringify(result));
+        console.log(JSON.stringify(dataQuery));
+
+        const response = await fetch(`${process.env.REACT_APP_BASE_URL!}/exchange`, {
+            method: 'POST',
+            body: JSON.stringify(dataQuery),
+            headers: {
+                'content-type': 'application/json',
+            },
+        });
+
+        if (response.ok) {
+            // redirect
+        }
     };
 
     return (
@@ -95,36 +120,47 @@ export const TradeIn = (): React.JSX.Element => {
                             <SelectAutoButton
                                 isError={Boolean(errors.car_id?.message)}
                                 register={register('car_id', {
-                                    pattern: {
-                                        value: /^[0-9]+$/,
-                                        message: 'Выберите машину',
-                                    },
+                                    // pattern: {
+                                    //     value: /^[0-9]+$/,
+                                    //     message: 'Выберите машину',
+                                    // },
                                 })}
                             />
-                            <Checkbox id="trade_in_credit" textContent="Купить авто в кредит" />
-                            <FieldSlider
-                                endpoints={sliderField.endpoints.credit_terms}
-                                initValue={0}
-                                register={register('credit_terms', { required: true })}
-                                steps={sliderField.steps.credit_terms}
-                                ticksContentWidth={'calc(100% - 19px)'}
-                                ticksLeft="14px"
-                                titleText="Срок кредита, мес.:"
-                                unitOfMeasurement="мес."
+                            <Checkbox
+                                register={register('trade_in_credit')}
+                                id="trade_in_credit"
+                                textContent="Купить авто в кредит"
                             />
-                            <FieldSlider
-                                endpoints={sliderField.endpoints.initial_contribution}
-                                initValue={0}
-                                register={register('initial_contribution', { required: true })}
-                                steps={sliderField.steps.initial_contribution}
-                                ticksContentWidth={'calc(100% - 10px)'}
-                                ticksLeft="15px"
-                                titleText="Первоначальный взнос:"
-                                unitOfMeasurement="&#8381;"
-                            />
+
+                            <div
+                                className={styles.trade_in__extra_fields}
+                                style={{ height: inCreditField ? '100%' : '0%' }}
+                            >
+                                <FieldSlider
+                                    endpoints={sliderField.endpoints.credit_terms}
+                                    initValue={0}
+                                    register={register('credit_term', { required: true })}
+                                    steps={sliderField.steps.credit_terms}
+                                    ticksContentWidth={'calc(100% - 19px)'}
+                                    ticksLeft="14px"
+                                    titleText="Срок кредита, мес.:"
+                                    unitOfMeasurement="мес."
+                                />
+                                <FieldSlider
+                                    endpoints={sliderField.endpoints.initial_contribution}
+                                    initValue={0}
+                                    register={register('initial_contribution', { required: true })}
+                                    steps={sliderField.steps.initial_contribution}
+                                    ticksContentWidth={'calc(100% - 10px)'}
+                                    ticksLeft="15px"
+                                    titleText="Первоначальный взнос:"
+                                    unitOfMeasurement="&#8381;"
+                                />
+                            </div>
+
                             <h3>Ваш платёж:</h3>
                             <FormField
-                                register={register('custom_car', {
+                                register={register('customer_car', {
                                     required: true,
                                     minLength: {
                                         value: 2,
@@ -133,7 +169,7 @@ export const TradeIn = (): React.JSX.Element => {
                                 })}
                                 id="trade_in_your_auto"
                                 placeholder="Ваш автомобиль"
-                                isError={Boolean(errors.custom_car?.message)}
+                                isError={Boolean(errors.customer_car?.message)}
                             />
                             <FormField
                                 register={register('name', {

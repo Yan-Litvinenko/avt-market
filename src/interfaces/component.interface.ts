@@ -22,7 +22,7 @@ export type CrossProps = {
 export type FieldSliderProps = {
     endpoints: string[] | number[];
     initValue: number;
-    register: UseFormRegisterReturn<'credit_terms' | 'initial_contribution'>;
+    register: UseFormRegisterReturn<'credit_term' | 'initial_contribution'>;
     steps: number[];
     ticksContentWidth: string;
     ticksLeft: string;
@@ -33,7 +33,7 @@ export type FieldSliderProps = {
 export type FormFieldProps = {
     id: string;
     placeholder: string;
-    register: UseFormRegisterReturn<'name' | 'custom_car'>;
+    register: UseFormRegisterReturn<'name' | 'customer_car'>;
     isError: boolean;
 };
 
@@ -45,7 +45,7 @@ export type FormFieldSelectProps = {
 export type CheckboxProps = {
     id: string;
     textContent: string;
-    register?: UseFormRegisterReturn<'agree'>;
+    register?: UseFormRegisterReturn<'agree' | 'trade_in_credit'>;
 };
 
 export type FormFieldPhoneProps = {

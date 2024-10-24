@@ -38,8 +38,8 @@
         box-shadow: 0 4px 32px 0 var(--box-shadow);
         cursor: pointer;
         height: 24px;
-        transition: scale var(--transition-time);
         position: relative;
+        transition: scale var(--transition-time);
         width: 24px;
         z-index: 2;
     }
