@@ -1,6 +1,5 @@
-import type { UseFormRegister, UseFormRegisterReturn } from 'react-hook-form';
+import type { FieldValues, UseFormRegister, UseFormRegisterReturn } from 'react-hook-form';
 import type { AutoCard } from './interface';
-import type { ExchangeFormData } from './form.interface';
 import type {
     RegisterNameFormFieldExchange,
     RegisterNameFormFieldSlider,
@@ -53,9 +52,9 @@ export type CheckboxProps = {
     register?: UseFormRegisterReturn<RegisterNameCheckbox>;
 };
 
-export type FormFieldPhoneProps = {
+export type FormFieldPhoneProps<T extends FieldValues> = {
     id: string;
-    register: UseFormRegister<ExchangeFormData>;
+    register: UseFormRegister<T>;
 };
 
 export type BanksListItem = {

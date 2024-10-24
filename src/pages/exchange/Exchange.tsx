@@ -11,7 +11,7 @@ import { FormSendButton } from '../../components/formSendButton/FormSendButton';
 import { SelectAutoButton } from '../../components/selectAutoButton/SelectAutoButton';
 import { useExchange } from '../../hook/useExchange';
 
-export const TradeIn = (): React.JSX.Element => {
+export const Exchange = (): React.JSX.Element => {
     const { benefits, sliderField, handleSubmit, onSubmit, register, errors, inCreditField } = useExchange();
 
     return (

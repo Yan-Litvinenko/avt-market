@@ -94,6 +94,8 @@ export const useExchange = (): UseExchange => {
 
         if (response.ok) {
             // redirect
+            const resolve = await response.json();
+            alert(JSON.stringify(resolve));
         }
     };
 

@@ -12,7 +12,7 @@ import { InitialProvider } from './hoc/InitialProvider';
 import { Layout } from './components/layout/Layout';
 import { Provider } from 'react-redux';
 import { store } from './redux/store';
-import { TradeIn } from './pages/exchange/Exchange';
+import { Exchange } from './pages/exchange/Exchange';
 import './css/index.scss';
 
 const root = ReactDOM.createRoot(document.getElementById('root')!);
@@ -22,7 +22,7 @@ const router = createBrowserRouter(
             <Route index element={<Home />} loader={homeLoader} />
             {/* <Route path="installment" element={<Installment />} />
             <Route path="buyout" element={<Buyout />} /> */}
-            <Route path="exchange" element={<TradeIn />} />
+            <Route path="exchange" element={<Exchange />} />
             <Route path="banks" element={<Banks />} />
             <Route path="contacts" element={<Contacts />} />
             <Route path="about" element={<About />} />

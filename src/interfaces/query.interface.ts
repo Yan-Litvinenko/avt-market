@@ -6,3 +6,13 @@ export type ExchangePostQuery = {
     name: string;
     phone: number;
 };
+
+export type BuyoutPostQuery = {
+    id: number;
+    name: string;
+    phone: string;
+    brand: string;
+    model: string;
+    year: number;
+    mileage: number;
+};
