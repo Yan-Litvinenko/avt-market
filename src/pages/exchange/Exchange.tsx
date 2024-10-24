@@ -1,4 +1,5 @@
 import React from 'react';
+import benefits from './benefits.json';
 import styles from './Exchange.module.scss';
 import { BanksList } from '../../components/banksList/BanksList';
 import { Benefits } from '../../components/benefits/Benefits';
@@ -12,7 +13,7 @@ import { SelectAutoButton } from '../../components/selectAutoButton/SelectAutoBu
 import { useExchange } from '../../hook/useExchange';
 
 export const Exchange = (): React.JSX.Element => {
-    const { benefits, sliderField, handleSubmit, onSubmit, register, errors, inCreditField } = useExchange();
+    const { sliderField, handleSubmit, onSubmit, register, errors, inCreditField } = useExchange();
 
     return (
         <>

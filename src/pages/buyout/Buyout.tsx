@@ -1,4 +1,5 @@
 import React from 'react';
+import benefits from './buyout.json';
 import styles from './Buyout.module.scss';
 import { Benefits } from '../../components/benefits/Benefits';
 import { Checkbox } from '../../components/checkbox/Checkbox';
@@ -8,67 +9,10 @@ import { FormField } from '../../components/formField/FormField';
 import { FormFieldPhone } from '../../components/formFieldPhone/FormFieldPhone';
 import { FormFieldSelect } from '../../components/formFieldSelect/FormFieldSelect';
 import { FormSendButton } from '../../components/formSendButton/FormSendButton';
-import { useForm } from 'react-hook-form';
-import type { BuyoutFormData } from '../../interfaces/form.interface';
-import type { BenefitsProps } from '../../interfaces/interface';
-import { BuyoutPostQuery } from '../../interfaces/query.interface';
-
-const benefits: BenefitsProps[] = [
-    {
-        title: 'Рыночная цена',
-        description:
-            'Будьте уверены, что оценка автомобиля будет максимально лояльной, соответствующей рыночным ценам, и Вы получите всю сумму на руки.',
-    },
-    {
-        title: 'Мгновенная выплата',
-        description: 'После оформления документов Вы получите всю сумму на руки без задержек и проволочек.',
-    },
-    {
-        title: 'Бесплатная оценка',
-        description: 'Мы предлагаем бесплатную оценку с возможностью выезда независимого мастера-оценщика.',
-    },
-    {
-        title: 'Оформление до 30 мин.',
-        description:
-            'Благодаря представительсту банков-партнеров в автоцентре процессу одобрения автокредита займет не более 30 минут.',
-    },
-];
+import { useBuyout } from '../../hook/useBuyout';
 
 export const Buyout = (): React.JSX.Element => {
-    const {
-        register,
-        setValue,
-        formState: { errors },
-        handleSubmit,
-    } = useForm<BuyoutFormData>({
-        mode: 'all',
-    });
-
-    const onSubmit = async (data: BuyoutFormData) => {
-        if (!data.agree || !data.agree_country) return;
-
-        const dataQuery: BuyoutPostQuery = {
-            brand: data.brand,
-            id: data.id,
-            mileage: data.mileage,
-            model: data.model,
-            name: data.name,
-            phone: data.phone,
-            year: data.year,
-        };
-
-        const response = await fetch(`${process.env.REACT_APP_BASE_URL!}/buyout`, {
-            method: 'POST',
-            body: JSON.stringify(dataQuery),
-            headers: {
-                'content-type': 'application/json',
-            },
-        });
-
-        const resolveResponse = await response.json();
-
-        alert(JSON.stringify(resolveResponse));
-    };
+    const { register, errors, handleSubmit, onSubmit, setValue } = useBuyout();
 
     return (
         <div className="container">

@@ -1,6 +1,6 @@
-import type { BenefitsProps, SliderField } from './interface';
-import type { ExchangeFormData } from './form.interface';
-import type { UseFormHandleSubmit, UseFormRegister, FieldErrors } from 'react-hook-form';
+import type { SliderField } from './interface';
+import type { BuyoutFormData, ExchangeFormData } from './form.interface';
+import type { UseFormHandleSubmit, UseFormRegister, FieldErrors, UseFormSetValue } from 'react-hook-form';
 
 export type UseNumberPhoneProps = {
     phoneInput: React.MutableRefObject<HTMLInputElement | null>;
@@ -13,11 +13,18 @@ export type UseNumberPhone = [
 ];
 
 export type UseExchange = {
-    benefits: BenefitsProps[];
     errors: FieldErrors<ExchangeFormData>;
     handleSubmit: UseFormHandleSubmit<ExchangeFormData, undefined>;
     inCreditField: boolean;
     onSubmit: (data: ExchangeFormData) => Promise<void>;
     register: UseFormRegister<ExchangeFormData>;
     sliderField: SliderField;
+};
+
+export type UseBuyout = {
+    onSubmit: (data: BuyoutFormData) => Promise<void>;
+    handleSubmit: UseFormHandleSubmit<BuyoutFormData, undefined>;
+    register: UseFormRegister<BuyoutFormData>;
+    errors: FieldErrors<BuyoutFormData>;
+    setValue: UseFormSetValue<BuyoutFormData>;
 };

@@ -1,39 +1,8 @@
 import { useForm } from 'react-hook-form';
 import type { ExchangeFormData } from '../interfaces/form.interface';
 import type { ExchangePostQuery } from '../interfaces/query.interface';
-import type { BenefitsProps } from '../interfaces/interface';
 import type { UseExchange } from '../interfaces/hook.interface';
 import type { SliderField } from '../interfaces/interface';
-
-const benefits: BenefitsProps[] = [
-    {
-        title: 'Гарантия 1 год',
-        description: 'Автоцентр предоставляет гарантию на техническое состояние автомобиля с момента покупки.',
-    },
-    {
-        title: 'Выгода до 300 000 ₽',
-        description:
-            'При оформлении автомобиля в кредит Вам предоставляется дополнительная скидка от изначальной стоимости автомобиля.',
-    },
-    {
-        title: 'Trade-In как первый взнос',
-        description:
-            'В качестве первоначального взноса Вы можете сдать свой автомобиль по системе Trade-In с дополнительной скидкой до 300 000 ₽.',
-    },
-    {
-        title: 'По 2 документам',
-        description: 'Для оформления автомобиля в кредит Вам потребуются только паспорт и водительское удостоверение.',
-    },
-    {
-        title: 'Второй комплект резины',
-        description: 'При покупке автомобиля каждый клиент получает второй комплект резины в подарок.',
-    },
-    {
-        title: 'Среднерыночная цена',
-        description:
-            'Будьте уверены, что оценка автомобиля будет максимально лояльной, соответствующей рыночным ценам, и Вы получите всю сумму на руки.',
-    },
-];
 
 const sliderField: SliderField = {
     steps: {
@@ -99,5 +68,5 @@ export const useExchange = (): UseExchange => {
         }
     };
 
-    return { benefits, sliderField, handleSubmit, onSubmit, register, errors, inCreditField };
+    return { sliderField, handleSubmit, onSubmit, register, errors, inCreditField };
 };
