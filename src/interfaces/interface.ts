@@ -39,3 +39,14 @@ export type AutoCard = {
 export type FavoritesLocalStorage = {
     id: number;
 };
+
+export type SliderField = {
+    steps: {
+        credit_terms: number[];
+        initial_contribution: number[] | string[];
+    };
+    endpoints: {
+        credit_terms: number[];
+        initial_contribution: number[] | string[];
+    };
+};

@@ -12,7 +12,7 @@ import { InitialProvider } from './hoc/InitialProvider';
 import { Layout } from './components/layout/Layout';
 import { Provider } from 'react-redux';
 import { store } from './redux/store';
-import { TradeIn } from './pages/tradeIn/TradeIn';
+import { TradeIn } from './pages/exchange/Exchange';
 import './css/index.scss';
 
 const root = ReactDOM.createRoot(document.getElementById('root')!);

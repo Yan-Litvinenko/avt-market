@@ -1,6 +1,11 @@
 import type { UseFormRegister, UseFormRegisterReturn } from 'react-hook-form';
 import type { AutoCard } from './interface';
-import type { TradeInFormData } from './form.interface';
+import type { ExchangeFormData } from './form.interface';
+import type {
+    RegisterNameFormFieldExchange,
+    RegisterNameFormFieldSlider,
+    RegisterNameCheckbox,
+} from './form.interface';
 
 export type SliderElementProps = {
     descriptionStroke: string[];
@@ -22,7 +27,7 @@ export type CrossProps = {
 export type FieldSliderProps = {
     endpoints: string[] | number[];
     initValue: number;
-    register: UseFormRegisterReturn<'credit_term' | 'initial_contribution'>;
+    register: UseFormRegisterReturn<RegisterNameFormFieldSlider>;
     steps: number[];
     ticksContentWidth: string;
     ticksLeft: string;
@@ -33,7 +38,7 @@ export type FieldSliderProps = {
 export type FormFieldProps = {
     id: string;
     placeholder: string;
-    register: UseFormRegisterReturn<'name' | 'customer_car'>;
+    register: UseFormRegisterReturn<RegisterNameFormFieldExchange>;
     isError: boolean;
 };
 
@@ -45,12 +50,12 @@ export type FormFieldSelectProps = {
 export type CheckboxProps = {
     id: string;
     textContent: string;
-    register?: UseFormRegisterReturn<'agree' | 'trade_in_credit'>;
+    register?: UseFormRegisterReturn<RegisterNameCheckbox>;
 };
 
 export type FormFieldPhoneProps = {
     id: string;
-    register: UseFormRegister<TradeInFormData>;
+    register: UseFormRegister<ExchangeFormData>;
 };
 
 export type BanksListItem = {
